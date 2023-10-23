@@ -5,7 +5,9 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "dependencies": {
     "element-plus": "^2.4.1",
@@ -13,8 +15,21 @@
     "vue": "^3.3.4"
   },
   "devDependencies": {
+    "@storybook/addon-essentials": "7.5.1",
+    "@storybook/addon-interactions": "7.5.1",
+    "@storybook/addon-links": "7.5.1",
+    "@storybook/blocks": "7.5.1",
+    "@storybook/testing-library": "0.2.2",
+    "@storybook/vue3": "7.5.1",
+    "@storybook/vue3-vite": "7.5.1",
     "@vitejs/plugin-vue": "^4.3.1",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
     "sass": "^1.69.4",
+    "storybook": "7.5.1",
     "vite": "^4.4.9"
+  },
+  "resolutions": {
+    "jackspeak": "2.1.1"
   }
 }
