@@ -9,6 +9,15 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
+  "main": "./dist/sparc-design-system-components-2.umd.js",
+  "files": [
+    "dist/*",
+    "src/*",
+    "public/*",
+    "*.json",
+    "*.js",
+    "plugins/*"
+  ],
   "dependencies": {
     "@carbon/grid": "^11.20.0",
     "element-plus": "^2.4.1",
@@ -32,5 +41,10 @@
   },
   "resolutions": {
     "jackspeak": "2.1.1"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:nih-sparc/sparc-design-system-components-2.git"
   }
 }
