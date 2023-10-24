@@ -5,6 +5,25 @@ import vue from '@vitejs/plugin-vue'
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  build: {
+    target: 'esnext',
+    lib: {
+      entry: './src/components/index.js',
+      name: 'sparc-design-system-components-2',
+    },
+    rollupOptions: {
+      // Externalize dependencies to avoid bundling them
+      external: ['vue'],
+      output: {
+        // Specify the format as 'umd' for a Universal Module Definition
+        format: 'umd',
+        // Set the globals for your dependencies (e.g., 'vue': 'Vue')
+        globals: {
+          vue: 'Vue',
+        },
+      },
+    },
+  },
   plugins: [
     vue(),
   ],
