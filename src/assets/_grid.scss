@@ -1,0 +1,4 @@
+@use '@carbon/grid';
+
+// Emit all the CSS for the CSS Grid
+@include grid.css-grid();

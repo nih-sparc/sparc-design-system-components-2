@@ -1,23 +1,24 @@
+@import "./sparc-theme.scss";
 @import 'https://fonts.googleapis.com/css?family=Asap:400,400i,500,600,700&display=swap';
-
 @import '_variables';
 
 /* icon font path, required */
 $--color-primary: $app-primary-color;
 $--font-path: '~element-plus/lib/theme-chalk/fonts';
 
-@import "element-plus/theme-chalk/src/index";
-
 @import '_base';
+@import '_grid';
+@import '_spacing';
+
 @import './components/_el-tooltip';
 @import './components/_el-button';
 @import './components/_el-notification';
 @import './components/_el-message';
+@import './components/_el-table';
+
 /*@import './components/_el-input';
 @import './components/_el-select';
 @import './components/_el-popover';
-@import './components/_table';
-@import '_grid';
-@import './spacing';
+
 @import '_icons';*/
 
