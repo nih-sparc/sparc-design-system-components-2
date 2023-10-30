@@ -8,7 +8,7 @@
   </header>
 
   <main>
-
+    <SparcLogo></SparcLogo>
     <div class="tooltip">
       <sparc-tooltip v-for="dir in tooltipDirs" :key="dir" :placement="dir">
         <template v-slot:data>
@@ -89,6 +89,7 @@
 <script>
   import HelloWorld from './components/HelloWorld.vue'
   import SparcTooltip from './components/SparcTooltip.vue'
+  import SparcLogo from './components/SparcLogo.vue'
   import { ref } from 'vue'
   import { successMessage, infoMessage, failMessage, informationNotification, iconInformationNotification } from "../utils/notificationMessages"
 
@@ -331,6 +332,7 @@
     components: {
       HelloWorld,
       SparcTooltip,
+      SparcLogo
     },
     name: 'App',
     setup() {
