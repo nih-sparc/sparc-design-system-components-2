@@ -17,7 +17,6 @@ export default defineConfig({
       output: {
         // Specify the format as 'umd' for a Universal Module Definition
         format: 'umd',
-        exports: 'default',
         // Set the globals for your dependencies (e.g., 'vue': 'Vue')
         globals: {
           vue: 'Vue',
