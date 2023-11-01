@@ -83,6 +83,24 @@
         780.29 GB
       </el-table-column>
     </el-table>
+    <el-button @click="openDialog">
+      Show Dialog
+    </el-button>
+    <el-dialog
+      v-model="dialogVisible"
+      :show-close="true"
+      title="Test Dialog"
+      @close="dialogVisible = false"
+    >
+      <div>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Viverra aliquet eget sit amet tellus cras adipiscing enim eu.
+      </div>
+      <template #footer>
+        <el-button @click="dialogVisible = false">
+          Close
+        </el-button>
+      </template>
+    </el-dialog>
   </main>
 </template>
 
@@ -350,8 +368,10 @@
         'right-center',
         'right-bottom'
       ])
+      const dialogVisible = ref(false)
 
       return {
+        dialogVisible,
         tableData,
         tooltipDirs
       }
@@ -371,6 +391,9 @@
       },
       openNotificationWithIcon() {
         iconInformationNotification('Notification Title', 'This is a notification with an icon.')
+      },
+      openDialog() {
+        this.dialogVisible = true
       }
     }
   }
