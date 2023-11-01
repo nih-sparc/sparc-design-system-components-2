@@ -4,4 +4,4 @@ import SparcLogo from './SparcLogo.vue'
 
 import * as ElementPlus from 'element-plus';
 
-export { SparcLogo, ElementPlus };
+export default { SparcLogo, ElementPlus };
