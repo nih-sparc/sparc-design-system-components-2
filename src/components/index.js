@@ -2,14 +2,14 @@ import { createApp } from 'vue';
 import ElementPlus from 'element-plus';
 import '../assets/styles.scss';
 
+import SparcLogo from './SparcLogo.vue'
+
 const installYourPlugin = (app) => {
   app.use(ElementPlus);
   // Register and expose your custom components and logic here
   // For example:
   // app.component('CustomComponent', CustomComponent);
-  Object.keys(Components).forEach(component => {
-    app.component(component, Components[component]);
-  })
+  app.component('SparcLogo', SparcLogo)
 };
 
 export default {
