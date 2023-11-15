@@ -1,6 +1,6 @@
 {
-  "name": "sparc-design-system-components",
-  "version": "0.0.5",
+  "name": "sparc-design-system-components-2",
+  "version": "0.0.6",
   "private": false,
   "scripts": {
     "dev": "vite",
@@ -9,7 +9,7 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
-  "main": "./dist/sparc-design-system-components.umd.js",
+  "main": "./dist/sparc-design-system-components-2.umd.js",
   "files": [
     "dist/*",
     "src/*",
@@ -37,7 +37,8 @@
     "react-dom": "18.2.0",
     "sass": "^1.69.4",
     "storybook": "7.5.1",
-    "vite": "^4.4.9"
+    "vite": "^4.4.9",
+    "vite-svg-loader": "^4.0.0"
   },
   "resolutions": {
     "jackspeak": "2.1.1"

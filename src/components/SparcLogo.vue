@@ -1,11 +1,15 @@
 <template>
     <img class="logo" :src="logoSrc" alt="Logo for SPARC">
+    <help-icon height="32" fill="red"/>
 </template>
 
 <script>
+import HelpIcon from './icons/Help.vue'
 export default {
   name: 'SparcLogo',
-
+  components: {
+    HelpIcon
+  },
   props: {
     type: {
       type: String,
