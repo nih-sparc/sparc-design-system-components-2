@@ -1,6 +1,7 @@
 <template>
     <img class="logo" :src="logoSrc" alt="Logo for SPARC">
     <help-icon height="32" fill="red"/>
+    <el-button class="secondary">Testing</el-button>
 </template>
 
 <script>
