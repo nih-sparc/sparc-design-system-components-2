@@ -13,7 +13,6 @@
           <slot name="mainContent" />
         </div>
       </div>
-      <el-button class="primary">Test</el-button>
     </el-dialog>
   </template>
   
