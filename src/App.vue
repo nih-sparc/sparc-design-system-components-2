@@ -101,6 +101,68 @@
         </el-button>
       </template>
     </el-dialog>
+    <large-modal
+      :visible="dialogVisibleLarge"
+      @close-download-dialog="dialogVisibleLarge = false"
+    >
+      <template class="content" #optionalContent>
+        <h1>Direct download</h1>
+        <div>
+          <p>You can download the raw files and metadata directly to your computer as a zip archive free of charge.</p>
+          <p class="download-container__download-dataset-size">
+            Dataset Size: 17.43 GB
+          </p>
+          <el-button class="download-button">Download</el-button>
+        </div>
+      </template>
+      <template class="content" #mainContent>
+        <h1>Download from AWS</h1>
+        <p>
+          Raw files and metadata are stored in an AWS S3 Requester Pays bucket.
+          You can learn more about downloading data from AWS on our
+          <a href="/#" target="_blank">Help Page</a>.
+        </p>
+        <div>
+          <p>*Requester pays means that any costs associated with downloading the data will be charged to your AWS account.
+            For transfer pricing information, visit the <a href="https://aws.amazon.com/s3/pricing/" target="blank">AWS Pricing documentation.</a>
+          </p>
+          <div>
+          <el-button class="secondary" @click="dialogVisibleLarge = false">
+            Close
+          </el-button>
+          </div>
+        </div>
+      </template>
+    </large-modal>
+    <el-button
+      plain
+      @click="dialogVisibleLarge = true">
+      Open Large Modal
+    </el-button>
+    <div>
+      <sparc-radio
+        v-model="radioVal"
+        label="1"
+        :disabled="false"
+        display="Option 1"
+      />    
+      <sparc-radio
+        v-model="radioVal"
+        label="2"
+        :disabled="false"
+        display="Option 2"
+      />
+    </div>
+    <div>
+      <sparc-radio
+        v-for="r in radios"
+        v-bind:key="r.label"
+        v-model="radioVal2"
+        :label="r.label"
+        :disabled="r.disabled"
+        :display="r.display"
+      />
+    </div>
   </main>
 </template>
 
@@ -108,6 +170,8 @@
   import HelloWorld from './components/HelloWorld.vue'
   import SparcTooltip from './components/SparcTooltip.vue'
   import SparcLogo from './components/SparcLogo.vue'
+  import LargeModal from './components/LargeModal.vue'
+  import SparcRadio from './components/SparcRadio.vue'
   import { ref } from 'vue'
   import { successMessage, infoMessage, failMessage, informationNotification, iconInformationNotification } from "../utils/notificationMessages"
 
@@ -350,7 +414,9 @@
     components: {
       HelloWorld,
       SparcTooltip,
-      SparcLogo
+      SparcLogo,
+      LargeModal,
+      SparcRadio
     },
     name: 'App',
     setup() {
@@ -368,12 +434,36 @@
         'right-center',
         'right-bottom'
       ])
+      const radioVal=ref("1");
+      const radioVal2 = ref(5);
+      const radios = ref([
+        {
+          label: 4,
+          display: "Option 1",
+          disabled: false
+        },
+        {
+          label: 5,
+          display: "Option 2",
+          disabled: false
+        },
+        {
+          label: 6,
+          display: "Option 3",
+          disabled: true
+        }
+      ])
       const dialogVisible = ref(false)
+      const dialogVisibleLarge = ref(false)
 
       return {
         dialogVisible,
+        dialogVisibleLarge,
         tableData,
-        tooltipDirs
+        tooltipDirs,
+        radioVal,
+        radioVal2,
+        radios
       }
     },
     methods: {
