@@ -3,12 +3,8 @@
 </template>
 
 <script>
-import HelpIcon from './icons/Help.vue'
 export default {
   name: 'SparcLogo',
-  components: {
-    HelpIcon
-  },
   props: {
     type: {
       type: String,
