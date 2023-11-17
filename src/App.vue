@@ -191,6 +191,37 @@
         />
       </el-row>
     </el-col>
+    <el-select v-model="value" placeholder="Select">
+      <el-option
+        v-for="item in options"
+        :key="item.value"
+        :label="item.label"
+        :value="item.value">
+      </el-option>
+    </el-select>
+    <div>
+      <el-popover
+        title="How do filters work?"
+        width="190"
+        trigger="hover"
+        :append-to-body=false
+        class="popover"
+        >
+        <template v-slot:reference>
+          <el-button>Hover to show popover</el-button>
+        </template>
+        <div>
+          <strong>Within categories:</strong> OR 
+          <br/>
+          example: 'heart' OR 'colon'
+          <br/>
+          <br/>
+          <strong>Between categories:</strong> AND
+          <br/>
+          example: 'rat' AND 'lung'
+        </div>
+      </el-popover>
+    </div>
   </main>
 </template>
 
@@ -577,7 +608,7 @@
       label: 'Five',
       id: '5',
     }]
-  };
+  }
   const fifteenOptionsDropdownMultiselectCategory = {
     label: 'Fifteen Options',
     id: '0',
@@ -643,6 +674,50 @@
       id: '15'
     }]
   }
+  const selectOpts = [
+    {
+      label: 'Group 1',
+      options: [
+        {
+          value: 'Option1',
+          label: 'Option 1'
+        },
+        {
+          value: 'Option2',
+          label: 'Option 2'
+        },
+      ]
+    },
+    {
+      label: 'Group 2',
+      options: [
+        {
+          value: 'Option3',
+          label: 'Option 3'
+        },
+        {
+          value: 'Option4',
+          label: 'Option 4'
+        },
+      ]
+    },
+  ]
+  const options = [{
+      value: 'Option1',
+      label: 'Option1'
+    }, {
+      value: 'Option2',
+      label: 'Option2'
+    }, {
+      value: 'Option3',
+      label: 'Option3'
+    }, {
+      value: 'Option4',
+      label: 'Option4'
+    }, {
+      value: 'Option5',
+      label: 'Option5'
+    }]
 
   export default {
     components: {
@@ -669,8 +744,10 @@
         'right-center',
         'right-bottom'
       ])
-      const radioVal=ref("1");
-      const radioVal2 = ref(5);
+      let value = ref('')
+      let selectVal = ref([])
+      const radioVal=ref("1")
+      const radioVal2 = ref(5)
       const radios = ref([
         {
           label: 4,
@@ -704,7 +781,11 @@
         tooltipDirs,
         radioVal,
         radioVal2,
-        radios
+        radios,
+        value,
+        selectVal,
+        selectOpts,
+        options
       }
     },
     methods: {

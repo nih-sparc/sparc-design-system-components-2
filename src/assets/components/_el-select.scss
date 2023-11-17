@@ -1,0 +1,39 @@
+@import '../_variables.scss';
+.el-select {
+  &.secondary {
+    .el-input {
+      input {
+        border-color: $lightGrey;
+      }
+    }
+  }
+  .el-input {
+    .el-input__inner {
+      font-size: 1rem;
+    }
+  }
+  .el-input {
+    &.is-disabled {
+      input {
+        border-color: $mediumGrey;
+      }
+      .el-select__caret {
+        color: $lightGrey;
+      }
+      .el-input__inner {
+        &:hover {
+          border-color: $mediumGrey !important;
+        }
+      }
+    }
+    .el-select__caret {
+      color: $mediumGrey;
+    }
+  }
+}
+
+.el-select-group__title {
+  color: $mediumGrey;
+  font-size: 1rem;
+  font-weight: bold;
+}

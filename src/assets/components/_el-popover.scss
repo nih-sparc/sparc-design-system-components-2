@@ -1,0 +1,25 @@
+@import '../_variables.scss';
+
+.el-popover {
+  background: $tooltipColor !important;
+  border: 1px solid $purple !important;
+  border-radius: 4px;
+  color: #303133 !important;
+  font-size: 12px;
+  line-height: 18px;
+  a:not(.underline){
+    text-decoration: underline;
+    color: #303133;
+  }
+  .popper__arrow {
+    border-top-color: $purple !important;
+    border-bottom-color: $purple !important;
+  }
+  .el-popper__arrow::before{
+    border: 1px solid $purple !important;
+    background-color: $tooltipColor !important;
+  }
+  p {
+    margin-bottom: 0;
+  }
+}
