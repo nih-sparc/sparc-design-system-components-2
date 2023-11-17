@@ -1,10 +1,12 @@
 import '../assets/styles.scss';
 
+import ElementPlus from 'element-plus'
+
 import SparcLogo from './SparcLogo.vue';
 import LargeModal from './LargeModal.vue'
 import SparcTooltip from './SparcTooltip.vue'
 import SparcRadio from './SparcRadio.vue';
-import ElementPlus from 'element-plus'
+import DropdownMultiselect from './DropdownMultiselect/DropdownMultiselect.vue'
 
 export default {
   install(app) {
@@ -13,5 +15,6 @@ export default {
     app.component('LargeModal', LargeModal);
     app.component('SparcTooltip', SparcTooltip);
     app.component('SparcRadio', SparcRadio);
+    app.component('DropdownMultiselect', DropdownMultiselect);
   },
 };

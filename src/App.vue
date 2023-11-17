@@ -105,7 +105,7 @@
       :visible="dialogVisibleLarge"
       @close-download-dialog="dialogVisibleLarge = false"
     >
-      <template class="content" #optionalContent>
+      <template #optionalContent>
         <h1>Direct download</h1>
         <div>
           <p>You can download the raw files and metadata directly to your computer as a zip archive free of charge.</p>
@@ -115,7 +115,7 @@
           <el-button class="download-button">Download</el-button>
         </div>
       </template>
-      <template class="content" #mainContent>
+      <template #mainContent>
         <h1>Download from AWS</h1>
         <p>
           Raw files and metadata are stored in an AWS S3 Requester Pays bucket.
@@ -163,6 +163,34 @@
         :display="r.display"
       />
     </div>
+    <el-col class="dropdown-multiselect">
+      <el-row>
+        <dropdown-multiselect
+          :category="oneOptionsDropdownMultiselectCategory"  
+        />
+      </el-row>
+      <el-row>
+        <dropdown-multiselect
+          :category="twoOptionsDropdownMultiselectCategory"  
+          :tooltip="dropdownMultiselectTooltip"
+        />
+      </el-row>
+      <el-row>
+        <dropdown-multiselect
+          :category="nineOptionsDropdownMultiselectCategory" 
+        />
+      </el-row>
+      <el-row>
+        <dropdown-multiselect
+          :category="fifteenOptionsDropdownMultiselectCategory" 
+        />
+      </el-row>
+      <el-row>
+        <dropdown-multiselect
+          :category="multiLevelDropdownMultiselectCategory" 
+        />
+      </el-row>
+    </el-col>
   </main>
 </template>
 
@@ -172,6 +200,7 @@
   import SparcLogo from './components/SparcLogo.vue'
   import LargeModal from './components/LargeModal.vue'
   import SparcRadio from './components/SparcRadio.vue'
+  import DropdownMultiselect from './components/DropdownMultiselect/DropdownMultiselect.vue'
   import { ref } from 'vue'
   import { successMessage, infoMessage, failMessage, informationNotification, iconInformationNotification } from "../utils/notificationMessages"
 
@@ -410,13 +439,219 @@
     "embargo": false
   }]
 
+  const dropdownMultiselectTooltip = "This is a very long test<br/>tooltip for the dropdown<br/>multiselect component."
+  const oneOptionsDropdownMultiselectCategory = {
+    label: 'One Option',
+    id: '0',
+    data: [
+    {
+      label: 'One',
+      id: '1',
+    }]
+  }
+  const twoOptionsDropdownMultiselectCategory = {
+    label: 'Two Options',
+    id: '0',
+    data: [
+    {
+      label: 'One',
+      id: '1',
+    },
+    {
+      label: 'Two',
+      id: '2',
+    }]
+  }
+  const nineOptionsDropdownMultiselectCategory = {
+    label: 'Nine Options',
+    id: '0',
+    data: [
+    {
+      label: 'One.One',
+      id: '1',
+    },
+    {
+      label: 'One.Two',
+      id: '2',
+    },
+    {
+      label: 'Three',
+      id: '3',
+    },
+    {
+      label: 'Four',
+      id: '4',
+    },
+    {
+      label: 'Five',
+      id: '5',
+    },
+    {
+      label: 'Six',
+      id: '6',
+    },
+    {
+      label: 'Seven',
+      id: '7',
+    },
+    {
+      label: 'Eight',
+      id: '8',
+    },
+    {
+      label: 'Nine',
+      id: '9',
+    }]
+  }
+  const multiLevelDropdownMultiselectCategory = {
+    label: 'Multi-Level',
+    id: '0',
+    data: [
+    {
+      label: 'One',
+      id: '1',
+      children: [
+      {
+        label: 'Child One',
+        id: '6',
+      },
+      {
+        label: 'Child Two',
+        id: '7',
+      },
+      {
+        label: 'Child Three',
+        id: '8',
+      }]
+    },
+    {
+      label: 'Two',
+      id: '2',
+    },
+    {
+      label: 'Three',
+      id: '3',
+      children: [
+      {
+        label: 'Child One',
+        id: '9',
+      },
+      {
+        label: 'Child Two',
+        id: '10',
+      },
+      {
+        label: 'Child Three',
+        id: '11',
+      },
+      {
+        label: 'Child Four',
+        id: '12',
+      },
+      {
+        label: 'Child Five',
+        id: '13',
+      },
+      {
+        label: 'Child Six',
+        id: '14',
+      },
+      {
+        label: 'Child Seven',
+        id: '15',
+      },
+      {
+        label: 'Child Eight',
+        id: '16',
+      },
+      {
+        label: 'Child Nine',
+        id: '17',
+      }]
+    },
+    {
+      label: 'Four',
+      id: '4',
+    },
+    {
+      label: 'Five',
+      id: '5',
+    }]
+  };
+  const fifteenOptionsDropdownMultiselectCategory = {
+    label: 'Fifteen Options',
+    id: '0',
+    data: [
+    {
+      label: 'One',
+      id: '1',
+    },
+    {
+      label: 'Two',
+      id: '2',
+    },
+    {
+      label: 'Three',
+      id: '3',
+    },
+    {
+      label: 'Four',
+      id: '4',
+    },
+    {
+      label: 'Five',
+      id: '5',
+    },
+    {
+      label: 'Six',
+      id: '6',
+    },
+    {
+      label: 'Seven',
+      id: '7',
+    },
+    {
+      label: 'Eight',
+      id: '8',
+    },
+    {
+      label: 'Nine',
+      id: '9',
+    },
+    {
+      label: 'Ten',
+      id: '10'
+    },
+    {
+      label: 'Eleven',
+      id: '11',
+    },
+    {
+      label: 'Twelve',
+      id: '12',
+    },
+    {
+      label: 'Thirteen',
+      id: '13',
+    },
+    {
+      label: 'Fourteen',
+      id: '14',
+    },
+    {
+      label: 'Fifteen',
+      id: '15'
+    }]
+  }
+
   export default {
     components: {
       HelloWorld,
       SparcTooltip,
       SparcLogo,
       LargeModal,
-      SparcRadio
+      SparcRadio,
+      DropdownMultiselect
     },
     name: 'App',
     setup() {
@@ -457,6 +692,12 @@
       const dialogVisibleLarge = ref(false)
 
       return {
+        dropdownMultiselectTooltip,
+        oneOptionsDropdownMultiselectCategory,
+        twoOptionsDropdownMultiselectCategory,
+        nineOptionsDropdownMultiselectCategory,
+        multiLevelDropdownMultiselectCategory,
+        fifteenOptionsDropdownMultiselectCategory,
         dialogVisible,
         dialogVisibleLarge,
         tableData,
@@ -510,6 +751,12 @@ header {
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
+}
+.dropdown-multiselect {
+  width: 14rem !important;
+  .el-row:not(:last-child) .dropdown-multiselect-border {
+    border-bottom: none !important;
+  }
 }
 
 @media (min-width: 1024px) {
