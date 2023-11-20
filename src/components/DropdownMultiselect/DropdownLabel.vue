@@ -13,8 +13,7 @@
       <arrow-icon
         v-show="showCollapsibleArrow"
         :class="showContent ? 'arrow-down' : 'arrow-up'"
-        class="ml-8 icon-arrow"
-        :dir="collapsibleArrowDir"
+        class="ml-8"
         height="15"
         width="15"
       />
@@ -66,9 +65,6 @@ export default {
     }
   },
   computed: {
-    collapsibleArrowDir: function() {
-      return this.showContent ? 'down' : 'up'
-    },
     showContent: function() {
       return !(this.collapsed || this.disabled)
     },

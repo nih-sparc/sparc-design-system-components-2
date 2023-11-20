@@ -7,6 +7,8 @@ import LargeModal from './LargeModal.vue'
 import SparcTooltip from './SparcTooltip.vue'
 import SparcRadio from './SparcRadio.vue';
 import DropdownMultiselect from './DropdownMultiselect/DropdownMultiselect.vue'
+import Pagination from './Pagination.vue'
+import PaginationMenu from './PaginationMenu.vue'
 
 export default {
   install(app) {
@@ -16,5 +18,7 @@ export default {
     app.component('SparcTooltip', SparcTooltip);
     app.component('SparcRadio', SparcRadio);
     app.component('DropdownMultiselect', DropdownMultiselect);
+    app.component('Pagination', Pagination);
+    app.component('PaginationMenu', PaginationMenu);
   },
 };

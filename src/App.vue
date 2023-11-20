@@ -222,6 +222,15 @@
         </div>
       </el-popover>
     </div>
+    <pagination
+      :total-count="pageCount"
+      :selected="selectedPage"
+      @select-page="onPaginationChange"
+    />      
+    <pagination-menu 
+      :page-size="pageSize"
+      @update-page-size="updatePageSize"
+    />
   </main>
 </template>
 
@@ -232,6 +241,8 @@
   import LargeModal from './components/LargeModal.vue'
   import SparcRadio from './components/SparcRadio.vue'
   import DropdownMultiselect from './components/DropdownMultiselect/DropdownMultiselect.vue'
+  import Pagination from './components/Pagination.vue'
+  import PaginationMenu from './components/PaginationMenu.vue'
   import { ref } from 'vue'
   import { successMessage, infoMessage, failMessage, informationNotification, iconInformationNotification } from "../utils/notificationMessages"
 
@@ -726,7 +737,9 @@
       SparcLogo,
       LargeModal,
       SparcRadio,
-      DropdownMultiselect
+      DropdownMultiselect,
+      Pagination,
+      PaginationMenu
     },
     name: 'App',
     setup() {
@@ -767,6 +780,9 @@
       ])
       const dialogVisible = ref(false)
       const dialogVisibleLarge = ref(false)
+      const pageSize= ref(10)
+      const pageCount= ref(100)
+      const selectedPage = ref(3)
 
       return {
         dropdownMultiselectTooltip,
@@ -785,7 +801,10 @@
         value,
         selectVal,
         selectOpts,
-        options
+        options,
+        pageSize,
+        pageCount,
+        selectedPage
       }
     },
     methods: {
@@ -806,7 +825,14 @@
       },
       openDialog() {
         this.dialogVisible = true
-      }
+      },
+      onPaginationChange: function(page) {
+        this.selectedPage = page
+      },
+      updatePageSize: function(limit) {
+        this.pageSize = limit === 'View All' ?  100 : limit
+        this.pageCount = limit === 'View All' ?  100 : limit
+      },
     }
   }
 </script>
