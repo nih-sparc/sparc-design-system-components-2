@@ -52,7 +52,14 @@
       @click="openNotificationWithIcon">
       Show Notification with Icon
     </el-button>
-
+    <el-col>
+        <el-row>
+          <icon-card
+            :title="iconCardData.title"
+            :icons="iconCardData.icons"
+          />
+        </el-row>
+      </el-col>
     <el-table
       :data="tableData"
       :default-sort = "{prop: 'name', order: 'descending'}"
@@ -249,8 +256,86 @@
   import Pagination from './components/Pagination.vue'
   import PaginationMenu from './components/PaginationMenu.vue'
   import BreadcrumbTrail from './components/BreadcrumbTrail.vue'
+  import IconCard from './components/IconCard.vue'
   import { ref } from 'vue'
   import { successMessage, infoMessage, failMessage, informationNotification, iconInformationNotification } from "../utils/notificationMessages"
+
+
+  const iconCardData={
+     title:'Browse Data By Category',
+     icons: [{
+      title: 'Bladder',
+      image: 'https://via.placeholder.com/736',
+      linkComponent: 'router-link',
+      href: '/bladder'
+    },
+    {
+      title: 'Colon',
+      image: 'https://via.placeholder.com/736',
+      linkComponent: 'router-link',
+      href: '/colon'
+    },
+    {
+      title: 'Esophogus',
+      image: 'https://via.placeholder.com/736',
+      linkComponent: 'router-link',
+      href: '/esophogus'
+    },
+    {
+      title: 'Female Reproductive System',
+      image: 'https://via.placeholder.com/736',
+      linkComponent: 'router-link',
+      href: '/female-reproductive-system'
+    },
+    {
+      title: 'Heart',
+      image: 'https://via.placeholder.com/736',
+      linkComponent: 'router-link',
+      href: '/heart'
+    },
+    {
+      title: 'Kidney',
+      image: 'https://via.placeholder.com/736',
+      linkComponent: 'router-link',
+      href: '/kidney'
+    },
+    {
+      title: 'Liver',
+      image: 'https://via.placeholder.com/736',
+      linkComponent: 'router-link',
+      href: '/liver'
+    },
+    {
+      title: 'Lungs',
+      image: 'https://via.placeholder.com/736',
+      linkComponent: 'router-link',
+      href: '/lungs'
+    },
+    {
+      title: 'Male Reproductive System',
+      image: 'https://via.placeholder.com/736',
+      linkComponent: 'router-link',
+      href: '/male-reproductive-system'
+    },
+    {
+      title: 'Small Intestine',
+      image: 'https://via.placeholder.com/736',
+      linkComponent: 'router-link',
+      href: '/small-intestine'
+    },
+    {
+      title: 'Spleen',
+      image: 'https://via.placeholder.com/736',
+      linkComponent: 'router-link',
+      href: '/spleen'
+    },
+    {
+      title: 'Stomach',
+      image: 'https://via.placeholder.com/736',
+      linkComponent: 'router-link',
+      href: '/stomach'
+    }]
+  }
 
   const tableData = [{
     "id": 37,
@@ -752,7 +837,8 @@
       DropdownMultiselect,
       Pagination,
       PaginationMenu,
-      BreadcrumbTrail
+      BreadcrumbTrail,
+      IconCard
     },
     name: 'App',
     setup() {
@@ -818,7 +904,8 @@
         pageSize,
         pageCount,
         selectedPage,
-        breadcrumbs
+        breadcrumbs,
+        iconCardData
       }
     },
     methods: {
