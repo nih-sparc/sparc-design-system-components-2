@@ -57,7 +57,7 @@
   </script>
   
   <style lang="scss">
-  @import '../../../assets/_variables.scss';
+  @import '../assets/_variables.scss';
   .design-system-component-breadcrumb {
     align-items: flex-start;
     background: $lineColor2;

@@ -9,6 +9,11 @@
 
   <main>
     <SparcLogo></SparcLogo>
+    <breadcrumb-trail
+        :breadcrumb="breadcrumbs"
+        link-component="router-link"
+        title="Level 3 this should be truncated "
+      />
     <div class="tooltip">
       <sparc-tooltip v-for="dir in tooltipDirs" :key="dir" :placement="dir">
         <template v-slot:data>
@@ -243,6 +248,7 @@
   import DropdownMultiselect from './components/DropdownMultiselect/DropdownMultiselect.vue'
   import Pagination from './components/Pagination.vue'
   import PaginationMenu from './components/PaginationMenu.vue'
+  import BreadcrumbTrail from './components/BreadcrumbTrail.vue'
   import { ref } from 'vue'
   import { successMessage, infoMessage, failMessage, informationNotification, iconInformationNotification } from "../utils/notificationMessages"
 
@@ -729,7 +735,13 @@
       value: 'Option5',
       label: 'Option5'
     }]
-
+    const breadcrumbs= [{
+        label: "Home",
+        to: "/home"
+      }, {
+        label: "Level 2",
+        to: "/#"
+      }]
   export default {
     components: {
       HelloWorld,
@@ -739,7 +751,8 @@
       SparcRadio,
       DropdownMultiselect,
       Pagination,
-      PaginationMenu
+      PaginationMenu,
+      BreadcrumbTrail
     },
     name: 'App',
     setup() {
@@ -804,7 +817,8 @@
         options,
         pageSize,
         pageCount,
-        selectedPage
+        selectedPage,
+        breadcrumbs
       }
     },
     methods: {
@@ -838,6 +852,7 @@
 </script>
 
 <style scoped lang="scss">
+
 header {
   line-height: 1.5;
 }
@@ -845,6 +860,8 @@ header {
 .logo {
   display: block;
   margin: 0 auto 2rem;
+  height: 100px;
+  width:100px;
 }
 
 .tooltip {
