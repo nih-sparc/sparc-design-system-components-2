@@ -110,6 +110,7 @@
   .card-image {
     aspect-ratio: 1 / 1;
     width: -webkit-fill-available;
+    width:-moz-available;
   }
 
   </style>
