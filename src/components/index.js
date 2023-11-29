@@ -9,7 +9,7 @@ import SparcRadio from './SparcRadio.vue';
 import DropdownMultiselect from './DropdownMultiselect/DropdownMultiselect.vue'
 import Pagination from './Pagination.vue'
 import PaginationMenu from './PaginationMenu.vue'
-import BreadCrumbTrail from './BreadcrumbTrail.vue'
+import Breadcrumb from './BreadcrumbTrail.vue'
 import IconCard from '.IconCard.vue'
 
 export default {
@@ -22,7 +22,7 @@ export default {
     app.component('DropdownMultiselect', DropdownMultiselect);
     app.component('Pagination', Pagination);
     app.component('PaginationMenu', PaginationMenu);
-    app.component('BreadCrumbTrail', BreadCrumbTrail);
+    app.component('Breadcrumb', Breadcrumb);
     app.component('IconCard', IconCard)
   },
 };
