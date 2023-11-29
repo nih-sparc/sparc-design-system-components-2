@@ -10,7 +10,7 @@ import DropdownMultiselect from './DropdownMultiselect/DropdownMultiselect.vue'
 import Pagination from './Pagination.vue'
 import PaginationMenu from './PaginationMenu.vue'
 import Breadcrumb from './BreadcrumbTrail.vue'
-import IconCard from '.IconCard.vue'
+import IconCard from './IconCard.vue'
 
 export default {
   install(app) {
