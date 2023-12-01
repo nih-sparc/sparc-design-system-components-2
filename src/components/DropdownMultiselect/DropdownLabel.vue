@@ -3,12 +3,14 @@
     <div @click="onArrowClicked" :class="showCollapsibleArrow ? 'label-header-clickable' : ''" class="label-header">
       <span>
         <span class="label-title">{{ label }}</span>
-        <el-tooltip placement="top-start" transition="none">
-          <template v-slot:content>
+        <sparc-tooltip>
+          <template #item>
+            <help-icon v-if="showHelpIcon" class="ml-4 help-icon" width="20" height="20" />
+          </template>
+          <template #data>
             <div v-html="tooltip"></div>
           </template>
-          <help-icon v-if="showHelpIcon" class="ml-4 help-icon" width="20" height="20" />
-        </el-tooltip>
+        </sparc-tooltip>
       </span>
       <arrow-icon
         v-show="showCollapsibleArrow"
@@ -28,12 +30,14 @@
 import { isEmpty } from 'ramda'
 import HelpIcon from '../icons/Help.vue'
 import ArrowIcon from '../icons/Arrow.vue'
+import SparcTooltip from '../SparcTooltip.vue'
 export default {
   name: 'DropdownLabel',
 
   components: {
     HelpIcon,
-    ArrowIcon
+    ArrowIcon,
+    SparcTooltip
   },
 
   props: {
