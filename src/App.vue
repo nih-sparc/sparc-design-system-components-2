@@ -8,12 +8,41 @@
   </header>
 
   <main>
+
+    <div>
+
+    <sparc-checkbox
+      v-for="item in checkboxItem"
+      v-bind:key="item.label"
+      v-model="checkboxVal2"
+      :label="item.label"
+      :disabled="item.disabled"
+      :display="item.display"
+    />
+  </div>
+  <div>
+    <sparc-checkbox
+      v-model="checkboxVal"
+      label="1"
+      :disabled="true"
+      display="Option 1"
+    />
+    <sparc-checkbox
+      v-model="checkboxVal"
+      label="2"
+      :disabled="false"
+      display="Option 2"
+    />
+  </div>
+ 
+
     <SparcLogo></SparcLogo>
     <breadcrumb-trail
         :breadcrumb="breadcrumbs"
         link-component="router-link"
         title="Level 3 this should be truncated "
       />
+
     <div class="tooltip">
       <sparc-tooltip v-for="dir in tooltipDirs" :key="dir" :placement="dir">
         <template v-slot:data>
@@ -302,8 +331,9 @@
   import HelloWorld from './components/HelloWorld.vue'
   import SparcTooltip from './components/SparcTooltip.vue'
   import SparcLogo from './components/SparcLogo.vue'
-  import LargeModal from './components/LargeModal.vue'
+  import LargeModal from './components/largemodal.vue'
   import SparcRadio from './components/SparcRadio.vue'
+  import SparcCheckbox from './components/SparcCheckbox.vue'
   import DropdownMultiselect from './components/DropdownMultiselect/DropdownMultiselect.vue'
   import Pagination from './components/Pagination.vue'
   import PaginationMenu from './components/PaginationMenu.vue'
@@ -314,6 +344,25 @@
 
   import { ref } from 'vue'
   import { successMessage, infoMessage, failMessage, informationNotification, iconInformationNotification } from "../utils/notificationMessages"
+
+
+  const checkboxItem = ref([
+      {
+        label: 1,
+        display: "Option 1",
+        disabled: false
+      },
+      {
+        label: 2,
+        display: "Option 2",
+        disabled: false
+      },
+      {
+        label: 3,
+        display: "Option 3",
+        disabled: false
+      }
+    ]);
 
   const contentOverviewCard={
         subtitle: 'Cardio-respiratory system: heart',
@@ -408,6 +457,7 @@
       href: '/stomach'
     }]
   }
+
 
   const tableData = [{
     "id": 37,
@@ -923,6 +973,7 @@
       SparcLogo,
       LargeModal,
       SparcRadio,
+      SparcCheckbox,
       DropdownMultiselect,
       Pagination,
       PaginationMenu,
@@ -969,6 +1020,9 @@
           disabled: true
         }
       ])
+      const checkboxVal = ref(["1"]);
+      checkboxVal.value.push("2");
+      const checkboxVal2 = ref([]);
       const dialogVisible = ref(false)
       const dialogVisibleLarge = ref(false)
       const pageSize= ref(10)
@@ -977,6 +1031,9 @@
       const tabCard = ref(contentTabCard)
 
       return {
+        checkboxVal,
+        checkboxVal2,
+        checkboxItem,
         dropdownMultiselectTooltip,
         oneOptionsDropdownMultiselectCategory,
         twoOptionsDropdownMultiselectCategory,
