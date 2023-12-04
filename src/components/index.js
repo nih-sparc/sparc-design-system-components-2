@@ -12,6 +12,8 @@ import PaginationMenu from './PaginationMenu.vue'
 import Breadcrumb from './BreadcrumbTrail.vue'
 import IconCard from './IconCard.vue'
 import ContentTabCard from './ContentTabCard.vue'
+import ContentOverviewCard from './ContentOverviewCard.vue'
+
 
 export default {
   install(app) {
@@ -23,8 +25,12 @@ export default {
     app.component('DropdownMultiselect', DropdownMultiselect);
     app.component('Pagination', Pagination);
     app.component('PaginationMenu', PaginationMenu);
+
+    app.component('ContentOverviewCard', ContentOverviewCard);
+
     app.component('Breadcrumb', Breadcrumb);
     app.component('IconCard', IconCard)
     app.component('ContentTabCard', ContentTabCard)
+
   },
 };
