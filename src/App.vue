@@ -1,14 +1,7 @@
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
 
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-    </div>
-  </header>
-
-  <main>
-
+<SparcHeader :currentPath="$route.name"/>
+ 
     <div>
 
     <sparc-checkbox
@@ -35,8 +28,6 @@
     />
   </div>
  
-
-    <SparcLogo></SparcLogo>
     <breadcrumb-trail
         :breadcrumb="breadcrumbs"
         link-component="router-link"
@@ -365,11 +356,12 @@
         </div>
       </div>
     </content-tab-card>
-  </main>
+
 </template>
 
 <script>
   import HelloWorld from './components/HelloWorld.vue'
+  import SparcHeader from './components/SparcHeader.vue'
   import SparcTooltip from './components/SparcTooltip.vue'
   import SparcLogo from './components/SparcLogo.vue'
   import LargeModal from './components/largemodal.vue'
@@ -1020,6 +1012,7 @@
   export default {
     components: {
       HelloWorld,
+      SparcHeader,
       SparcTooltip,
       SparcLogo,
       LargeModal,

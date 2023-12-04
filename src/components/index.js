@@ -14,7 +14,8 @@ import Breadcrumb from './BreadcrumbTrail.vue'
 import IconCard from './IconCard.vue'
 import ContentTabCard from './ContentTabCard.vue'
 import ContentOverviewCard from './ContentOverviewCard.vue'
-
+import EventCard from './EventCard.vue'
+import SparcHeader from './SparcHeader.vue'
 
 export default {
   install(app) {
@@ -27,9 +28,9 @@ export default {
     app.component('DropdownMultiselect', DropdownMultiselect);
     app.component('Pagination', Pagination);
     app.component('PaginationMenu', PaginationMenu);
-
+    app.component('EventCard',EventCard);
     app.component('ContentOverviewCard', ContentOverviewCard);
-
+    app.component('SparcHeader',SparcHeader);
     app.component('Breadcrumb', Breadcrumb);
     app.component('IconCard', IconCard)
     app.component('ContentTabCard', ContentTabCard)
