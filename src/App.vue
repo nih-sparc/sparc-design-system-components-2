@@ -274,10 +274,27 @@
       :selected="selectedPage"
       @select-page="onPaginationChange"
     />      
-    <pagination-menu 
+    <pagination-menu
+      class="mb-24"
       :page-size="pageSize"
       @update-page-size="updatePageSize"
     />
+    <content-tab-card
+      :tabs="contentTabCard.tabs"
+      :active-tab-id="contentTabCard.activeTabId"
+      @tab-changed="tabChanged"
+    >
+      <div
+        v-for="tab in contentTabCard.tabs"
+        :key="tab.id"
+      >
+        <div
+          v-show="contentTabCard.activeTabId === tab.id" 
+        >
+          Content for {{tab.label}} goes here!
+        </div>
+      </div>
+    </content-tab-card>
   </main>
 </template>
 
@@ -293,6 +310,8 @@
   import BreadcrumbTrail from './components/BreadcrumbTrail.vue'
   import IconCard from './components/IconCard.vue'
   import ContentOverviewCard from './components/ContentOverviewCard.vue'
+  import ContentTabCard from './components/ContentTabCard.vue'
+
   import { ref } from 'vue'
   import { successMessage, infoMessage, failMessage, informationNotification, iconInformationNotification } from "../utils/notificationMessages"
 
@@ -879,7 +898,24 @@
       }, {
         label: "Level 2",
         to: "/#"
-      }]
+      }
+    ]
+    const contentTabCard = {
+      tabs: [{
+        label: 'Team Information', 
+        id: 'Team Information'
+      },
+      {
+        label: 'Diseases', 
+        id: 'Diseases'
+      },
+      {
+        label: 'Datasets', 
+        id: 'Datasets',
+        href: '/#'
+      }],
+      activeTabId: "Team Information"
+    }
   export default {
     components: {
       HelloWorld,
@@ -893,6 +929,8 @@
       BreadcrumbTrail,
       IconCard,
       ContentOverviewCard
+      ContentTabCard
+
     },
     name: 'App',
     setup() {
@@ -936,6 +974,7 @@
       const pageSize= ref(10)
       const pageCount= ref(100)
       const selectedPage = ref(3)
+      const tabCard = ref(contentTabCard)
 
       return {
         dropdownMultiselectTooltip,
@@ -960,7 +999,9 @@
         selectedPage,
         breadcrumbs,
         iconCardData,
-        contentOverviewCard
+        contentOverviewCard,
+        contentTabCard: tabCard
+
       }
     },
     methods: {
@@ -988,6 +1029,9 @@
       updatePageSize: function(limit) {
         this.pageSize = limit === 'View All' ?  100 : limit
         this.pageCount = limit === 'View All' ?  100 : limit
+      },
+      tabChanged(newTab) {
+        this.contentTabCard.activeTabId = newTab.id
       },
     }
   }
