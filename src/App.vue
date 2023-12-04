@@ -205,6 +205,47 @@
         :display="r.display"
       />
     </div>
+    <el-col>
+    <el-row class="event-card-row">
+         
+            <event-card
+              :eventType="eventCardEvent.type"
+              :eventImage="eventCardEvent.image"
+              :title="eventCardEvent.title"
+              :startDate="eventCardEvent.startDate"
+              :endDate="eventCardEvent.endDate"
+              :location="eventCardEvent.location"
+              :url="eventCardEvent.url"
+            />
+            <event-card
+              :eventType="eventCardEvent.type"
+              :eventImage="eventCardEvent.image"
+              :title="eventCardEvent.title"
+              :startDate="eventCardEvent.startDate"
+              :endDate="eventCardEvent.endDate"
+              :location="eventCardEvent.location"
+              :url="eventCardEvent.url"
+            />
+            <event-card
+              :eventType="eventCardEvent.type"
+              :eventImage="eventCardEvent.image"
+              :title="eventCardEvent.title"
+              :startDate="eventCardEvent.startDate"
+              :endDate="eventCardEvent.endDate"
+              :location="eventCardEvent.location"
+              :url="eventCardEvent.url"
+            />
+            <event-card
+              :eventType="eventCardEvent.type"
+              :eventImage="eventCardEvent.image"
+              :title="eventCardEvent.title"
+              :startDate="eventCardEvent.startDate"
+              :endDate="eventCardEvent.endDate"
+              :location="eventCardEvent.location"
+              :url="eventCardEvent.url"
+            />
+        </el-row>
+      </el-col>
     <el-col class="dropdown-multiselect">
       <el-row>
         <dropdown-multiselect
@@ -356,9 +397,11 @@
   import IconCard from './components/IconCard.vue'
   import ContentOverviewCard from './components/ContentOverviewCard.vue'
   import ContentTabCard from './components/ContentTabCard.vue'
+  import EventCard from './components/EventCard.vue'
 
   import { ref } from 'vue'
   import { successMessage, infoMessage, failMessage, informationNotification, iconInformationNotification } from "../utils/notificationMessages"
+
 
   const listCardDataStyleOne= [
         {
@@ -405,6 +448,18 @@
         text: "Show all News",
         url: "/#"
       }
+
+  const eventCardEvent = {
+        type: "Conference",
+        image: "https://via.placeholder.com/736",
+        title: "SPARC and Experimental Biology (EB)",
+        startDate: "2020-04-04T10:36:01.516Z",
+        endDate:"2020-04-07T10:36:01.516Z",
+        location: "San Diego, California",
+        url: "/#"
+      }
+
+
   const checkboxItem = ref([
       {
         label: 1,
@@ -1040,8 +1095,8 @@
       IconCard,
       ContentOverviewCard,
       ContentTabCard,
-      ListCard
-
+      ListCard,
+      EventCard
     },
     name: 'App',
     setup() {
@@ -1119,8 +1174,8 @@
         contentOverviewCard,
         listCardDataStyleOne,
         listCardDataStyleTwo,
-        contentTabCard: tabCard
-
+        contentTabCard: tabCard,
+        eventCardEvent
       }
     },
     methods: {
@@ -1185,6 +1240,17 @@ header {
   width: 14rem !important;
   .el-row:not(:last-child) .dropdown-multiselect-border {
     border-bottom: none !important;
+  }
+}
+.event-card-row {
+  .el-col {
+    width: 100%;
+    @media (min-width: 48em) {
+      width: 50%;
+    }
+    @media (min-width: 64em) {
+      width: 25%;
+    }
   }
 }
 
