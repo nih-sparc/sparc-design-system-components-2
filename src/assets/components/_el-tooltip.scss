@@ -13,6 +13,6 @@
   }
 }
 .el-popper.is-customized .el-popper__arrow::before {
-  border: 1px solid $purple !important;
   background-color: $tooltipColor !important;
+  border: 1px solid $purple;
 }

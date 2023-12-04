@@ -8,6 +8,7 @@
   </header>
 
   <main>
+
     <div>
 
     <sparc-checkbox
@@ -34,6 +35,14 @@
     />
   </div>
  
+
+    <SparcLogo></SparcLogo>
+    <breadcrumb-trail
+        :breadcrumb="breadcrumbs"
+        link-component="router-link"
+        title="Level 3 this should be truncated "
+      />
+
     <div class="tooltip">
       <sparc-tooltip v-for="dir in tooltipDirs" :key="dir" :placement="dir">
         <template v-slot:data>
@@ -72,7 +81,15 @@
       @click="openNotificationWithIcon">
       Show Notification with Icon
     </el-button>
-
+    <el-col>
+        <el-row>
+          <icon-card
+            :title="iconCardData.title"
+            :icons="iconCardData.icons"
+          />
+        </el-row>
+      </el-col>
+     
     <el-table
       :data="tableData"
       :default-sort = "{prop: 'name', order: 'descending'}"
@@ -216,6 +233,40 @@
         />
       </el-row>
     </el-col>
+    <el-col>
+        <el-row>
+          <content-overview-card
+            :subtitle="contentOverviewCard.subtitle"
+            :title="contentOverviewCard.title"
+            :description="contentOverviewCard.description"
+            :image="contentOverviewCard.image"
+          >
+            <template #metadata>
+              <div v-for="property in contentOverviewCard.metadata"
+              class="metadata-content"
+              :key="property.title"
+            >
+              <div class="metadata-title">
+                {{property.title}}
+              </div>
+              <div>
+                {{property.value}}
+              </div>
+              </div>
+            </template>
+            <template #buttons>
+              <a
+                href="/#"
+                target="_blank"
+              >
+                <el-button>
+                  View on NIH Reporter
+                </el-button>
+              </a>
+            </template>
+          </content-overview-card>
+        </el-row>
+      </el-col>
     <el-select v-model="value" placeholder="Select">
       <el-option
         v-for="item in options"
@@ -252,10 +303,27 @@
       :selected="selectedPage"
       @select-page="onPaginationChange"
     />      
-    <pagination-menu 
+    <pagination-menu
+      class="mb-24"
       :page-size="pageSize"
       @update-page-size="updatePageSize"
     />
+    <content-tab-card
+      :tabs="contentTabCard.tabs"
+      :active-tab-id="contentTabCard.activeTabId"
+      @tab-changed="tabChanged"
+    >
+      <div
+        v-for="tab in contentTabCard.tabs"
+        :key="tab.id"
+      >
+        <div
+          v-show="contentTabCard.activeTabId === tab.id" 
+        >
+          Content for {{tab.label}} goes here!
+        </div>
+      </div>
+    </content-tab-card>
   </main>
 </template>
 
@@ -269,8 +337,14 @@
   import DropdownMultiselect from './components/DropdownMultiselect/DropdownMultiselect.vue'
   import Pagination from './components/Pagination.vue'
   import PaginationMenu from './components/PaginationMenu.vue'
+  import BreadcrumbTrail from './components/BreadcrumbTrail.vue'
+  import IconCard from './components/IconCard.vue'
+  import ContentOverviewCard from './components/ContentOverviewCard.vue'
+  import ContentTabCard from './components/ContentTabCard.vue'
+
   import { ref } from 'vue'
   import { successMessage, infoMessage, failMessage, informationNotification, iconInformationNotification } from "../utils/notificationMessages"
+
 
   const checkboxItem = ref([
       {
@@ -289,6 +363,101 @@
         disabled: false
       }
     ]);
+
+  const contentOverviewCard={
+        subtitle: 'Cardio-respiratory system: heart',
+        title: 'Comprehensive structural and functional mapping of the mammalian cardiac nervous system',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing',
+        image: 'https://via.placeholder.com/736',
+        metadata: [{
+          title: 'NIH Award',
+          value: '000000000000'
+        },
+        {
+          title: 'Principal Investigator',
+          value: 'Fynn Blackwell'
+        },
+        {
+          title: 'Institution',
+          value: 'University of California Los Angeles'
+        }],
+      }
+  const iconCardData={
+     title:'Browse Data By Category',
+     icons: [{
+      title: 'Bladder',
+      image: 'https://via.placeholder.com/736',
+      linkComponent: 'router-link',
+      href: '/bladder'
+    },
+    {
+      title: 'Colon',
+      image: 'https://via.placeholder.com/736',
+      linkComponent: 'router-link',
+      href: '/colon'
+    },
+    {
+      title: 'Esophogus',
+      image: 'https://via.placeholder.com/736',
+      linkComponent: 'router-link',
+      href: '/esophogus'
+    },
+    {
+      title: 'Female Reproductive System',
+      image: 'https://via.placeholder.com/736',
+      linkComponent: 'router-link',
+      href: '/female-reproductive-system'
+    },
+    {
+      title: 'Heart',
+      image: 'https://via.placeholder.com/736',
+      linkComponent: 'router-link',
+      href: '/heart'
+    },
+    {
+      title: 'Kidney',
+      image: 'https://via.placeholder.com/736',
+      linkComponent: 'router-link',
+      href: '/kidney'
+    },
+    {
+      title: 'Liver',
+      image: 'https://via.placeholder.com/736',
+      linkComponent: 'router-link',
+      href: '/liver'
+    },
+    {
+      title: 'Lungs',
+      image: 'https://via.placeholder.com/736',
+      linkComponent: 'router-link',
+      href: '/lungs'
+    },
+    {
+      title: 'Male Reproductive System',
+      image: 'https://via.placeholder.com/736',
+      linkComponent: 'router-link',
+      href: '/male-reproductive-system'
+    },
+    {
+      title: 'Small Intestine',
+      image: 'https://via.placeholder.com/736',
+      linkComponent: 'router-link',
+      href: '/small-intestine'
+    },
+    {
+      title: 'Spleen',
+      image: 'https://via.placeholder.com/736',
+      linkComponent: 'router-link',
+      href: '/spleen'
+    },
+    {
+      title: 'Stomach',
+      image: 'https://via.placeholder.com/736',
+      linkComponent: 'router-link',
+      href: '/stomach'
+    }]
+  }
+
 
   const tableData = [{
     "id": 37,
@@ -773,7 +942,30 @@
       value: 'Option5',
       label: 'Option5'
     }]
-
+    const breadcrumbs= [{
+        label: "Home",
+        to: "/home"
+      }, {
+        label: "Level 2",
+        to: "/#"
+      }
+    ]
+    const contentTabCard = {
+      tabs: [{
+        label: 'Team Information', 
+        id: 'Team Information'
+      },
+      {
+        label: 'Diseases', 
+        id: 'Diseases'
+      },
+      {
+        label: 'Datasets', 
+        id: 'Datasets',
+        href: '/#'
+      }],
+      activeTabId: "Team Information"
+    }
   export default {
     components: {
       HelloWorld,
@@ -784,7 +976,12 @@
       SparcCheckbox,
       DropdownMultiselect,
       Pagination,
-      PaginationMenu
+      PaginationMenu,
+      BreadcrumbTrail,
+      IconCard,
+      ContentOverviewCard
+      ContentTabCard
+
     },
     name: 'App',
     setup() {
@@ -831,6 +1028,7 @@
       const pageSize= ref(10)
       const pageCount= ref(100)
       const selectedPage = ref(3)
+      const tabCard = ref(contentTabCard)
 
       return {
         checkboxVal,
@@ -855,7 +1053,12 @@
         options,
         pageSize,
         pageCount,
-        selectedPage
+        selectedPage,
+        breadcrumbs,
+        iconCardData,
+        contentOverviewCard,
+        contentTabCard: tabCard
+
       }
     },
     methods: {
@@ -884,11 +1087,15 @@
         this.pageSize = limit === 'View All' ?  100 : limit
         this.pageCount = limit === 'View All' ?  100 : limit
       },
+      tabChanged(newTab) {
+        this.contentTabCard.activeTabId = newTab.id
+      },
     }
   }
 </script>
 
 <style scoped lang="scss">
+
 header {
   line-height: 1.5;
 }
@@ -896,6 +1103,8 @@ header {
 .logo {
   display: block;
   margin: 0 auto 2rem;
+  height: 100px;
+  width:100px;
 }
 
 .tooltip {
