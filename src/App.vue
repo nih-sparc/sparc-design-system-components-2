@@ -246,6 +246,12 @@
             />
         </el-row>
       </el-col>
+      <multi-select
+        :options="multiLevelSelectOptions"
+      />
+      <multi-select
+        :options="singleLevelSelectOptions"
+      />
     <el-col class="dropdown-multiselect">
       <el-row>
         <dropdown-multiselect
@@ -383,6 +389,7 @@
   import ContentOverviewCard from './components/ContentOverviewCard.vue'
   import ContentTabCard from './components/ContentTabCard.vue'
   import EventCard from './components/EventCard.vue'
+  import MultiSelect from './components/MultiSelect.vue'
 
   import { ref } from 'vue'
   import { successMessage, infoMessage, failMessage, informationNotification, iconInformationNotification } from "../utils/notificationMessages"
@@ -508,7 +515,50 @@
       href: '/stomach'
     }]
   }
-
+  const multiLevelSelectOptions= [{
+        value: 1,
+        label: 'Asia',
+        children: [{
+          value: 2,
+          label: 'China',
+        }, {
+          value: 6,
+          label: 'Japan',
+        }, {
+          value: 10,
+          label: 'Korea',
+        }]
+      }, {
+        value: 14,
+        label: 'Europe',
+        children: [{
+          value: 15,
+          label: 'France'
+        }, {
+          value: 19,
+          label: 'UK',
+        }]
+      }, {
+        value: 23,
+        label: 'North America',
+        children: [{
+          value: 24,
+          label: 'US'
+        }, {
+          value: 25,
+          label: 'Canada'
+        }]
+      }]
+     const singleLevelSelectOptions= [{
+        value: 1,
+        label: 'Asia',
+      }, {
+        value: 14,
+        label: 'Europe',
+      }, {
+        value: 23,
+        label: 'North America',
+      }]
 
   const tableData = [{
     "id": 37,
@@ -1032,7 +1082,8 @@
       IconCard,
       ContentOverviewCard,
       ContentTabCard,
-      EventCard
+      EventCard,
+      MultiSelect
     },
     name: 'App',
     setup() {
@@ -1109,7 +1160,9 @@
         iconCardData,
         contentOverviewCard,
         contentTabCard: tabCard,
-        eventCardEvent
+        eventCardEvent,
+        singleLevelSelectOptions,
+        multiLevelSelectOptions
 
       }
     },
