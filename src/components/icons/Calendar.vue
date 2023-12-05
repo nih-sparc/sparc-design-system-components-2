@@ -4,15 +4,15 @@
       :width="width"
       :height="height"
       :fill="color"
-      viewBox="0 0 24 24"
+      viewBox="0 0 16 17"
     >
-      <g><path pid="0" d="M20 8H4a1 1 0 010-2h16a1 1 0 010 2zM20 13H7a1 1 0 010-2h10a1 1 0 010 2zM20 18H10a1 1 0 010-2h4a1 1 0 010 2z"/><path pid="1" d="M14 4a2 2 0 0 0-4 0H4.5v18H8a1 1 0 0 0 0-2H6.5V6h2v2h7V6h2v14H12a1 1 0 1 0 0 2h7.5V4z"/></g>
+      <g _fill="#000" fill-rule="nonzero"><path pid="0" d="M6.168 1.482h3.684v1.744H6.168z"/><path pid="1" d="M13.032 3.226h1.242v2.79H1.705v-2.79h1.242V1.482H.021V17H15.98V1.482h-2.947v1.744zM1.705 15.256V7.76h12.59v7.497H1.705z"/><path pid="2" d="M3.726 0H5.41v4.348H3.726zM10.589 0h1.684v4.348h-1.684z"/></g>
     </svg>
   </template>
   
   <script>
   export default {
-    name: "FilterApplied",
+    name: "Calendar",
     props: {
       width: {
         type: Number,
@@ -20,7 +20,7 @@
       },
       height: {
         type: Number,
-        default: 16,
+        default: 17,
       },
       color: {
         type: String,
@@ -29,3 +29,4 @@
     },
   };
   </script>
+

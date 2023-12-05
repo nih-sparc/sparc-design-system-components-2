@@ -18,11 +18,11 @@
           </div>
       </h3>
       <div class="upcoming-event__detail">
-        <svgicon name="calendar" height="16" width="16" />
+         <calendar class="svg-icon"></calendar>
         <div class="body1">{{ getDateRange(startDate, endDate) }}</div>
       </div>
       <div v-if="location" class="upcoming-event__detail">
-        <svgicon name="map" height="16" width="16" />
+        <map-icon class="svg-icon"></map-icon>
         <div class="body1">{{ location }}</div>
       </div>
     </div>
@@ -30,7 +30,8 @@
   
   <script>
   import { format, parseISO } from 'date-fns'
-  
+  import Calendar from './icons/Calendar.vue'
+  import MapIcon from './icons/Map.vue'
   export default {
     name: 'EventCard',
   
@@ -61,7 +62,10 @@
         type: String
       }
     },
-  
+  components:{
+    Calendar,
+    MapIcon
+  },
     methods: {
       /**
        * Get event date range, if there is no end date, default to start date
