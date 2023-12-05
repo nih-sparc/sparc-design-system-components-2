@@ -241,6 +241,12 @@
             />
         </el-row>
       </el-col>
+      <multi-select
+        :options="multiLevelSelectOptions"
+      />
+      <multi-select
+        :options="singleLevelSelectOptions"
+      />
     <el-col class="dropdown-multiselect">
       <el-row>
         <dropdown-multiselect
@@ -301,6 +307,20 @@
               </a>
             </template>
           </content-overview-card>
+        </el-row>
+      </el-col>
+      <el-col>
+        <el-row style="margin: 2rem 2rem">
+          <list-card
+            :data="listCardDataStyleOne"
+          />
+        </el-row>
+        <el-row style="margin: 2rem 2rem">
+          <list-card
+            :data="listCardDataStyleTwo.data"
+            :sectionText="listCardDataStyleTwo.text"
+            :sectionUrl="listCardDataStyleTwo.url"
+          />
         </el-row>
       </el-col>
     <el-select v-model="value" placeholder="Select">
@@ -364,6 +384,7 @@
 </template>
 
 <script>
+  import ListCard from './components/ListCard/ListCard.vue'
   import HelloWorld from './components/HelloWorld.vue'
   import SparcHeader from './components/SparcHeader.vue'
   import SparcTooltip from './components/SparcTooltip.vue'
@@ -379,9 +400,57 @@
   import ContentOverviewCard from './components/ContentOverviewCard.vue'
   import ContentTabCard from './components/ContentTabCard.vue'
   import EventCard from './components/EventCard.vue'
+  import MultiSelect from './components/MultiSelect.vue'
 
   import { ref } from 'vue'
   import { successMessage, infoMessage, failMessage, informationNotification, iconInformationNotification } from "../utils/notificationMessages"
+
+
+  const listCardDataStyleOne= [
+        {
+          title: "Prototype simulation of undiseased human cardiac ventricular cells",
+          summary: "A prototype use-case package consisting of a single-cell, 1D and 2D tissue model for simulation of autonomic effects on the cardiovascular system derived from the human ventricular model developed by O'Hara and Rudy group.",
+          date: "2020-04-04T10:36:01.516Z",
+          url: "/#",
+          image: "https://via.placeholder.com/128"
+        },
+        {
+          title: "Prototype simulation of undiseased human cardiac ventricular cells",
+          summary: "A prototype use-case package consisting of a single-cell, 1D and 2D tissue model for simulation of autonomic effects on the cardiovascular system derived from the human ventricular model developed by O'Hara and Rudy group.",
+          date: "2020-04-04T10:36:01.516Z",
+          url: "/#",
+          image: "https://via.placeholder.com/128"
+        },
+        {
+          title: "Prototype simulation of undiseased human cardiac ventricular cells",
+          summary: "A prototype use-case package consisting of a single-cell, 1D and 2D tissue model for simulation of autonomic effects on the cardiovascular system derived from the human ventricular model developed by O'Hara and Rudy group.",
+          date: "2020-04-04T10:36:01.516Z",
+          url: "/#",
+          image: "https://via.placeholder.com/128"
+        }
+      ];
+      const listCardDataStyleTwo ={
+        data: [{
+          title: "Prototype simulation of undiseased human cardiac ventricular cells",
+          summary: "A prototype use-case package consisting of a single-cell, 1D and 2D tissue model for simulation of autonomic effects on the cardiovascular system derived from the human ventricular model developed by O'Hara and Rudy group.",
+          date: "2020-04-04T10:36:01.516Z",
+          url: "/#"
+        },
+        {
+          title: "Prototype simulation of undiseased human cardiac ventricular cells",
+          summary: "A prototype use-case package consisting of a single-cell, 1D and 2D tissue model for simulation of autonomic effects on the cardiovascular system derived from the human ventricular model developed by O'Hara and Rudy group.",
+          date: "2020-04-04T10:36:01.516Z",
+          url: "/#"
+        },
+        {
+          title: "Prototype simulation of undiseased human cardiac ventricular cells",
+          summary: "A prototype use-case package consisting of a single-cell, 1D and 2D tissue model for simulation of autonomic effects on the cardiovascular system derived from the human ventricular model developed by O'Hara and Rudy group.",
+          date: "2020-04-04T10:36:01.516Z",
+          url: "/#"
+        }],
+        text: "Show all News",
+        url: "/#"
+      }
 
   const eventCardEvent = {
         type: "Conference",
@@ -392,6 +461,7 @@
         location: "San Diego, California",
         url: "/#"
       }
+
 
   const checkboxItem = ref([
       {
@@ -504,7 +574,50 @@
       href: '/stomach'
     }]
   }
-
+  const multiLevelSelectOptions= [{
+        value: 1,
+        label: 'Asia',
+        children: [{
+          value: 2,
+          label: 'China',
+        }, {
+          value: 6,
+          label: 'Japan',
+        }, {
+          value: 10,
+          label: 'Korea',
+        }]
+      }, {
+        value: 14,
+        label: 'Europe',
+        children: [{
+          value: 15,
+          label: 'France'
+        }, {
+          value: 19,
+          label: 'UK',
+        }]
+      }, {
+        value: 23,
+        label: 'North America',
+        children: [{
+          value: 24,
+          label: 'US'
+        }, {
+          value: 25,
+          label: 'Canada'
+        }]
+      }]
+     const singleLevelSelectOptions= [{
+        value: 1,
+        label: 'Asia',
+      }, {
+        value: 14,
+        label: 'Europe',
+      }, {
+        value: 23,
+        label: 'North America',
+      }]
 
   const tableData = [{
     "id": 37,
@@ -1030,7 +1143,10 @@
       IconCard,
       ContentOverviewCard,
       ContentTabCard,
-      EventCard
+      EventCard,
+      MultiSelect,
+      ListCard,
+
     },
     name: 'App',
     setup() {
@@ -1106,8 +1222,12 @@
         breadcrumbs,
         iconCardData,
         contentOverviewCard,
+        listCardDataStyleOne,
+        listCardDataStyleTwo,
         contentTabCard: tabCard,
         eventCardEvent,
+        singleLevelSelectOptions,
+        multiLevelSelectOptions,
         date1
 
       }
