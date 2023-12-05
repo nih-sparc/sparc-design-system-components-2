@@ -71,10 +71,10 @@
                 </ul>
                 <div class="mobile-navigation__links--social">
                   <a :href="twitterLink" target="_blank">
-                    <svgicon icon="social/twitterFull" width="30" height="26" color="#606266" />
+                    <twitterLink class="svg-icon" width="30" height="26" color="#606266" ></twitterLink>
                   </a>
                   <a :href="youtubeLink" target="_blank">
-                    <svgicon icon="social/youtubeFull" width="30" height="26" color="#606266" />
+                    <youtubeLink class="svg-icon" width="30" height="26" color="#606266"></youtubeLink>
                   </a>
                 </div>
               </div>
@@ -122,6 +122,8 @@
   import About from "./icons/About.vue";
   import Hamburger from "./icons/Hamburger.vue";
   import MagnifyingGlass from "./icons/MagnifyingGlass.vue"
+  import YoutubeFull from "./icons/YoutubeFull.vue";
+  import TwitterFull from "./icons/TwitterFull.vue";
 
   export default {
     name: "SparcHeader",
@@ -202,7 +204,9 @@
       Contact,
       About,
       MagnifyingGlass,
-      Hamburger
+      Hamburger,
+      TwitterFull,
+      YoutubeFull
     },
     data: () => ({
       menuOpen: false,
