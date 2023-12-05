@@ -8,6 +8,7 @@
   </header>
 
   <main>
+    <el-icon><Folder /></el-icon>
 
     <div>
 
@@ -405,6 +406,7 @@
   import ContentTabCard from './components/ContentTabCard.vue'
   import EventCard from './components/EventCard.vue'
   import MultiSelect from './components/MultiSelect.vue'
+  import { Folder } from '@element-plus/icons-vue'
 
   import { ref } from 'vue'
   import { successMessage, infoMessage, failMessage, informationNotification, iconInformationNotification } from "../utils/notificationMessages"
@@ -1146,9 +1148,9 @@
       ContentOverviewCard,
       ContentTabCard,
       EventCard,
-      MultiSelect
+      MultiSelect,
       ListCard,
-
+      Folder,
     },
     name: 'App',
     setup() {

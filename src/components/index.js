@@ -1,7 +1,7 @@
 import '../assets/styles.scss';
 
 import ElementPlus from 'element-plus'
-
+import * as ElementPlusIconsVue from '@element-plus/icons-vue'
 import SparcLogo from './SparcLogo.vue';
 import LargeModal from './LargeModal.vue'
 import SparcTooltip from './SparcTooltip.vue'
@@ -32,6 +32,8 @@ export default {
     app.component('Breadcrumb', Breadcrumb);
     app.component('IconCard', IconCard);
     app.component('ContentTabCard', ContentTabCard);
-
+    for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
+      app.component(key, component)
+    }
   },
 };
