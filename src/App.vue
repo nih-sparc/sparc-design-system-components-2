@@ -1,7 +1,11 @@
 <template>
 
-<SparcHeader :currentPath="$route.name"/>
- 
+<SparcHeader link-component="router-link" :currentPath="$route.name"/>
+      <el-date-picker
+        v-model="date1"
+        type="date"
+        placeholder="Pick a day">
+      </el-date-picker>
     <div>
 
     <sparc-checkbox
@@ -1009,6 +1013,7 @@
       }],
       activeTabId: "Team Information"
     }
+    const date1=""
   export default {
     components: {
       HelloWorld,
@@ -1102,7 +1107,8 @@
         iconCardData,
         contentOverviewCard,
         contentTabCard: tabCard,
-        eventCardEvent
+        eventCardEvent,
+        date1
 
       }
     },

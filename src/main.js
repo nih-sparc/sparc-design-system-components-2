@@ -6,7 +6,12 @@ import {createRouter, createWebHashHistory} from 'vue-router'
 import App from './App.vue'
 
 const app = createApp(App)
-const routes = []
+const routes = [
+    {
+    name: "index",
+    path:"/index",
+}
+]
 const router = createRouter({history:createWebHashHistory(), routes})
 
 app.use(router)

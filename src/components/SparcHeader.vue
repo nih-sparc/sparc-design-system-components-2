@@ -15,7 +15,7 @@
         <div class="header__nav--main">
           <div class="nav-main-container">
             <button class="nav-main-container__mobile-menu" @click="openMobileNav">
-              <svgicon name="hamburger" height="25" width="25" />
+              <Hamburger class="svg-icon" height="25" width="25"></Hamburger>
             </button>
             <div class="logo">
               <component
@@ -34,7 +34,7 @@
               @click="openMobileSearch"
               @enter="executeSearch"
             >
-              <svgicon name="magnifyingGlass" height="25" width="25" dir="left" />
+              <magnifying-glass class="svg-icon" height="25" width="25" dir="left" ></magnifying-glass>
             </button>
             <div :class="[searchOpen ? 'search-overlay' : '']">
               <div v-if="searchOpen" class="search-mobile">
@@ -61,7 +61,7 @@
                 <ul class="mobile-navigation__links">
                   <template v-for="item in parentLinks" :key="item.displayTitle" >
                     <li class="nav6">
-                      <svgicon :name="item.icon" width="18" height="18"/>
+                      <component :is="item.icon" width="18" height="18"></component>
                       <component
                         :is="linkComponent"
                         :to="item.href"
@@ -87,7 +87,8 @@
                 placeholder="Search"
                 @keyup.native.enter="executeSearch"
               >
-                <el-select slot="prepend" v-model="searchSelect">
+              <template v-slot:prepend>
+                <el-select v-model="searchSelect">
                   <el-option
                     v-for="option in searchSelectOptions"
                     :key="option.key"
@@ -95,15 +96,17 @@
                     :value="option.value"
                   />
                 </el-select>
+              </template>
               </el-input>
               <button class="nav-main-container__search-button" @click="executeSearch">
-                <svgicon
+                <magnifying-glass 
+                  class="svg-icon"
                   color="white"
-                  icon="magnifyingGlass"
                   height="25"
                   width="25"
-                  dir="left"
-                />
+                  dir="left">
+
+                </magnifying-glass>
               </button>
             </div>
           </div>
@@ -117,6 +120,8 @@
   import Help from "./icons/Help.vue"
   import Contact from "./icons/Contact.vue";
   import About from "./icons/About.vue";
+  import Hamburger from "./icons/Hamburger.vue";
+  import MagnifyingGlass from "./icons/MagnifyingGlass.vue"
 
   export default {
     name: "SparcHeader",
@@ -195,7 +200,9 @@
       SparcLogo,
       Help,
       Contact,
-      About
+      About,
+      MagnifyingGlass,
+      Hamburger
     },
     data: () => ({
       menuOpen: false,
@@ -546,9 +553,12 @@
     .el-select {
       width: 150px;
       :deep(.el-input--suffix) {
+        .el-input__wrapper{
+          padding:0;
+        }
         .el-input__inner {
-          border-radius: 4px 0px 0px 5px; 
-          border: solid 1px $lightGrey;
+          // border-radius: 4px 0px 0px 5px; 
+          // border: solid 1px $lightGrey;
         }
       }
     }
