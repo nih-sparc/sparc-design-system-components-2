@@ -37,6 +37,5 @@ export default {
     app.component('Breadcrumb', Breadcrumb);
     app.component('IconCard', IconCard);
     app.component('ContentTabCard', ContentTabCard);
-
   },
 };
