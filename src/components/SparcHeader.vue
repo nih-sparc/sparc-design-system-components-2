@@ -3,7 +3,7 @@
       <div class="header__nav">
         <div class="header__nav--parent">
           <template v-for="item in parentLinks" :key="item.displayTitle">
-            <svgicon :name="item.icon" width="18" height="18" />
+            <component class="svg-icon" :is="item.icon" width="18" height="18" />
             <!-- Expect this to be either nuxt-link or router-link -->
             <component
               :is="linkComponent"
@@ -113,8 +113,11 @@
   </template>
   
   <script>
-  import SparcLogo from "../components/SparcLogo.vue"
-  
+  import SparcLogo from "./SparcLogo.vue"
+  import Help from "./icons/Help.vue"
+  import Contact from "./icons/Contact.vue";
+  import About from "./icons/About.vue";
+
   export default {
     name: "SparcHeader",
     props: {
@@ -189,7 +192,10 @@
       }
     },
     components: {
-      SparcLogo
+      SparcLogo,
+      Help,
+      Contact,
+      About
     },
     data: () => ({
       menuOpen: false,
