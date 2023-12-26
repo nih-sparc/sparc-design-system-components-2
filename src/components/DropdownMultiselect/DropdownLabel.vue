@@ -3,7 +3,7 @@
     <div @click="onArrowClicked" :class="showCollapsibleArrow ? 'label-header-clickable' : ''" class="label-header">
       <span>
         <span class="label-title">{{ label }}</span>
-        <sparc-tooltip>
+        <sparc-tooltip placement="bottom-center">
           <template #item>
             <help-icon v-if="showHelpIcon" class="ml-4 help-icon" width="20" height="20" />
           </template>

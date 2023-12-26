@@ -10,6 +10,28 @@
   <main>
     <el-icon><Folder /></el-icon>
 
+    <el-select
+      v-model="month"
+      class="mr-8 month"
+      placeholder="Month"
+    >
+      <el-option
+        v-for="(month, index) in months"
+        :key="index"
+        :label="month"
+        :value="month"
+      />
+    </el-select>
+    <el-input-number
+      v-model="year"
+      controls-position="right"
+      placeholder="Year"
+      :precision="0"
+      :min="2000"
+      :max="2040"
+      disabled
+    />
+
     <div>
 
     <sparc-checkbox
@@ -21,6 +43,7 @@
       :display="item.display"
     />
   </div>
+  
   <div>
     <sparc-checkbox
       v-model="checkboxVal"
@@ -1168,6 +1191,20 @@
         'right-center',
         'right-bottom'
       ])
+      const months = [
+        'Jan',
+        'Feb',
+        'Mar',
+        'Apr',
+        'May',
+        'Jun',
+        'Jul',
+        'Aug',
+        'Sep',
+        'Oct',
+        'Nov',
+        'Dec'
+      ]
       let value = ref('')
       let selectVal = ref([])
       const radioVal=ref("1")
@@ -1198,8 +1235,13 @@
       const pageCount= ref(100)
       const selectedPage = ref(3)
       const tabCard = ref(contentTabCard)
+      const month = ref('Mar')
+      const year = ref(2020)
 
       return {
+        months,
+        month,
+        year,
         checkboxVal,
         checkboxVal2,
         checkboxItem,
