@@ -10,6 +10,10 @@ const routes = [
     {
     name: "index",
     path:"/index",
+},
+{
+    name:"data",
+    path:"/data"
 }
 ]
 const router = createRouter({history:createWebHashHistory(), routes})

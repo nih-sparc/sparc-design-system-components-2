@@ -121,10 +121,7 @@
       &:last-child {
         margin: 0;
       }
-      .svg-icon {
-        flex-shrink: 0;
-        margin-right: 0.5rem;
-      }
+      
       p {
         margin: 0;
       }
