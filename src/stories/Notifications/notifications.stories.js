@@ -1,3 +1,5 @@
+import Tooltips from '../../components/icons/tooltips.vue';
+
 export default {
     title: 'Components/Notification',
   }

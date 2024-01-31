@@ -3,8 +3,7 @@ import './demo-styles.scss';
 
 export default {
   title: 'Components/Checkboxes',
-  component:SparcCheckbox,
-  tags:['autodocs']
+  component:SparcCheckbox
 }
 
 const createDemo = (data, val) => {
@@ -31,7 +30,7 @@ const createDemo = (data, val) => {
   }
 }
 
-export const Primary = () => createDemo(
+export const CheckboxesFromArray = () => createDemo(
   [
     {
       label: 1,
@@ -66,7 +65,7 @@ export const Disabled = () => createDemo(
   [1]
 )
 
-export const Single = () => createDemo(
+export const Checkbox = () => createDemo(
   [
     {
       label: 1,

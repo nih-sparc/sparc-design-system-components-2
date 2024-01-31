@@ -20,7 +20,7 @@ export const Logo = () => ({
           </div>
         </div>
 
-        <div class="bx--row mb-32">
+        <div class="bx--row mb-32" style="display:flex; justify-content:space-evenly">
           <div class="bx--col">
             <div class="logo-white">
               <sparc-logo type="white" />
@@ -67,7 +67,7 @@ export const Secondary = () => ({
           </div>
         </div>
 
-        <div class="bx--row mb-32">
+        <div class="bx--row mb-32" style="display:flex; justify-content:space-evenly">
           <div class="bx--col">
             <div class="logo-white">
               <sparc-logo type="white" :secondary="true" />

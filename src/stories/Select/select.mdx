@@ -1,0 +1,179 @@
+import { Meta, Story} from '@storybook/addon-docs/blocks';
+import * as stories from './select.stories.js';
+
+<Meta title="Components/Select" />
+
+# Select
+Select inputs can be used when it is desired to display several options and allow the user to select one. 
+We directly utilize the Element UI el-select component for this which requires a value to bind to using `v-model`.
+
+<Story of={stories.Primary}>{stories.Primary()}</Story>
+
+#### Code
+```html
+<el-select v-model="value">
+  <el-option
+    v-for="item in options"
+    :key="item.value"
+    :label="item.label"
+    :value="item.value">
+  </el-option>
+</el-select>
+```
+
+```js
+export default {
+  data() {
+    return {
+      options: [{
+        value: 'Option1',
+        label: 'Option 1'
+      }, {
+        value: 'Option2',
+        label: 'Option 2'
+      }, {
+        value: 'Option3',
+        label: 'Option 3'
+      }, {
+        value: 'Option4',
+        label: 'Option 4'
+      }, {
+        value: 'Option5',
+        label: 'Option 5'
+      }],
+      value: ''
+    }
+  }
+}
+```
+
+# Size
+By default, the size of the select menu is large. Other sizes can be attained by passing in the `size` prop.
+
+### Large
+<Story of={stories.Large}>{stories.Large()}</Story>
+
+#### Code
+```html
+<el-select v-model="value" size="large">
+  ...
+</el-select>
+```
+
+### Medium
+<Story of={stories.Medium}>{stories.Medium()}</Story>
+
+#### Code
+```html
+<el-select v-model="value" size="medium">
+  ...
+</el-select>
+```
+
+### Small
+<Story of={stories.Small}>{stories.Small()}</Story>
+
+#### Code
+```html
+<el-select v-model="value" size="small">
+  ...
+</el-select>
+```
+
+# Disabled
+A select input may be disabled by passing in a boolean value to the `disabled` prop.
+
+<Story of={stories.Disabled}>{stories.Disabled()}</Story>
+
+#### Code
+```html
+<el-select v-model="value" :disabled="true">
+  ...
+</el-select>
+```
+
+# Secondary
+The secondary styling can be used by applying the `secondary` class.
+
+<Story of={stories.Secondary}>{stories.Secondary()}</Story>
+
+#### Code
+```html
+<el-select v-model="value" class="secondary">
+  ...
+</el-select>
+```
+
+# Placeholder
+The placeholder in the input can be customized with the `placeholder` prop.
+
+<Story of={stories.Placeholder}>{stories.Placeholder()}</Story>
+
+#### Code
+```html
+<el-select v-model="value" placeholder="PLACEHOLDER">
+  ...
+</el-select>
+```
+
+# Grouping
+Options can be categorized in groups and displayed with a label for each group.
+
+<Story of={stories.Grouping}>{stories.Grouping()}</Story>
+
+#### Code
+```html
+<el-select v-model="value">
+  <el-option-group
+  v-for="group in options"
+  :key="group.label"
+  :label="group.label"
+  >
+    <el-option
+      v-for="item in group.options"
+      :key="item.value"
+      :label="item.label"
+      :value="item.value">
+    </el-option>
+  </el-option-group>
+</el-select>
+```
+
+```js
+export default {
+  data() {
+    return {
+      options: [
+        {
+          label: 'Group 1',
+          options: [
+            {
+              value: 'Option1',
+              label: 'Option 1'
+            },
+            {
+              value: 'Option2',
+              label: 'Option 2'
+            },
+          ]
+        },
+        {
+          label: 'Group 2',
+          options: [
+            {
+              value: 'Option3',
+              label: 'Option 3'
+            },
+            {
+              value: 'Option4',
+              label: 'Option 4'
+            },
+          ]
+        },
+      ],
+      value: []
+    }
+  }
+}
+```
+

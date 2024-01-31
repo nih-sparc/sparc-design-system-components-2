@@ -1,15 +1,17 @@
 //import { withKnobs, boolean } from '@storybook/addon-knobs';
+import Close from '../../components/icons/close.vue';
 
 import './demo-styles.scss';
 
 const defaultProps = () => ({
   isDisabled: {
-    default: boolean('Disabled', true)
+    default: 'Disabled'
   }
 })
 
 export default {
   title: 'Components/Text Input',
+
   //decorators: [withKnobs],
 
 }
@@ -25,6 +27,7 @@ export const Primary = () => ({
     }
   },
   props: defaultProps(),
+  components:{Close},
   template: `
     <div class="input-demo">
       <div class="input-wrap mb-32">
@@ -46,10 +49,9 @@ export const Primary = () => ({
           Success
         </div>
         <el-input v-model="successValue">
-          <svgicon
+          <close
             slot="suffix"
             class="background"
-            name="close"
             height="16"
             width="16"
           />
@@ -61,10 +63,9 @@ export const Primary = () => ({
           Error
         </div>
         <el-input v-model="errorValue">
-          <svgicon
-            slot="suffix"
+          <close
+            v-slot="suffix"
             class="background"
-            name="close"
             height="16"
             width="16"
           />

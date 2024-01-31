@@ -24,7 +24,23 @@ const defaultData = () => {
 }
 
 export const Primary = () => ({
-  data: () => defaultData(),
+  components:{BreadcrumbTrail},
+  data() {
+    return{
+      breadcrumb: [
+        {
+          to: '#',
+          label: 'Home'
+        },
+        {
+          to: '#',
+          label: 'Find Data'
+        }
+      ],
+      title: 'Spatial distribution and morphometric characterization of vagal efferents associated with the myenteric plexus of the rat stomach',
+      linkComponent: 'a'
+    }
+  },
   template: `
     <div>
       <breadcrumb-trail :title="title" :breadcrumb="breadcrumb" :link-component="linkComponent" />
@@ -33,6 +49,7 @@ export const Primary = () => ({
 })
 
 export const Layout = () => ({
+  components:{BreadcrumbTrail},
   data: () => defaultData(),
   template: `
     <div>

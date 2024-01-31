@@ -1,11 +1,27 @@
 .grid-demo {
     margin-bottom: 2rem;
+    background-color: #dbeaff;
+
+    .bx--row{
+      display:flex;
+      flex-wrap:wrap;
+    }
+    .bx--col{
+      flex-basis: 0;
+      flex-grow: 1;
+      max-width: 100%;
+      outline: 1px dashed #97c1ff;
+    }
     .outside {
+      background-color: #dbeaff;
       min-height: 80px;
     }
+    
     .inside {
       background-color: #edf4ff;
       min-height: 80px;
+      width:80%;
+      margin:auto;
     }
     [class*='--aspect-ratio--'] {
       .inside,

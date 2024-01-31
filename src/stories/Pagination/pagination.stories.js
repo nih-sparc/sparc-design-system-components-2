@@ -4,8 +4,7 @@ import ElementPlus from 'element-plus';
 
 export default {
   title: 'Components/Pagination',
-  component:Pagination,
-  tags:['autodocs'],
+  component:Pagination, PaginationMenuComp
 }
 
 const createDemo = (selected, totalCount, pageSize, background=false) => {
@@ -38,13 +37,15 @@ export const CollapsedPager = () => createDemo(10, 1000, 20)
 export const PaginationMenu = () => createDemo(10, 1000, 20, true)
 
 export const Menu = () => ({
-    components: { PaginationMenuComp },
+    components: { PaginationMenuComp, Pagination, ElementPlus },
     data() {
-        return { pageSize: 10 }
+        return { pageSize: 10}
     },
     template:`
         <div>
-            <pagination-menu :page-size="pageSize" />
+            <pagination-menu-comp
+            :page-size="pageSize" 
+            />
         </div>
     `
 })

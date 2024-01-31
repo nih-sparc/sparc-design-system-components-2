@@ -48,6 +48,8 @@ const preview = {
     },
     options:{
       theme: sparcTheme,
+          storySort: (a, b) =>
+       a.title === b.title ? 0 : a.id.localeCompare(b.id, undefined, { numeric: true })
     },
     actions: { argTypesRegex: "^on[A-Z].*" },
     controls: {

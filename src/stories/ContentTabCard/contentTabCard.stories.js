@@ -2,8 +2,7 @@ import ContentTabCard from '@/components/ContentTabCard.vue'
 
 export default {
   title: 'Components/ContentTabCard',
-  component:ContentTabCard,
-  tags:['autodocs']
+  component:ContentTabCard
 }
 
 const createDemo = (contentTabCardItem) => {

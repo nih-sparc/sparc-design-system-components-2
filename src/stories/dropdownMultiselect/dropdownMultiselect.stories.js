@@ -1,10 +1,8 @@
-import DropdownMultiselect from '@/components/Multiselect.vue'
+import DropdownMultiselect from '@/components/DropdownMultiselect/DropdownMultiselect.vue'
 import './demo-styles.scss';
 
 export default {
-  title: 'Components/DropdownMultiselect',
-  component:DropdownMultiselect,
-  tags:['autodocs']
+  title: 'Components/DropdownMultiselect'
 }
 
 const createDemo = (category, visibleData) => {

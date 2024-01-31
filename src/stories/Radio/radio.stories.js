@@ -2,7 +2,7 @@ import SparcRadio from '@/components/SparcRadio.vue'
 import './demo-styles.scss';
 
 export default {
-  title: 'Components/Radio Buttons',
+  title: 'Components/RadioButtons',
 }
 
 const createDemo = (data, val) => {

@@ -1,5 +1,5 @@
 export default {
-    title: 'Components/Popup Modal',
+    title: 'Components/PopupModal',
   }
 
 
@@ -34,27 +34,28 @@ export const Primary = () => ({
     },
     template: `
     <div>
-      <el-row v-for="placements in modalPlacements" class="mb-16" type="flex" justify="center">
-        <el-popover
-          class="mr-16"
-          v-for="placement in placements" 
-          :key="placement" 
-          :placement="placement"
-          :trigger="trigger" 
+      <el-row  class="mb-16" type="flex" justify="center">
+      <el-popover
+        title="How do filters work?"
+        width="190"
+        trigger="hover"
+        :append-to-body=false
+        class="popover"
         >
-          <div>
-            Phrenic Nerve</br>
-            <b>COMPONENTS</b></br>
-            Non-autonomic peripheral</br>
-            <div style="margin-bottom: 5px;">
-              <el-button class="extra-small">View Source</el-button>
-            </div>
-            <div>
-              <el-button class="extra-small">Explore Data</el-button>
-            </div>
-          </div>
-          <el-button slot="reference">{{placement}}</el-button>
-        </el-popover>
+        <template v-slot:reference>
+          <el-button>Hover to show popover</el-button>
+        </template>
+        <div>
+          <strong>Within categories:</strong> OR 
+          <br/>
+          example: 'heart' OR 'colon'
+          <br/>
+          <br/>
+          <strong>Between categories:</strong> AND
+          <br/>
+          example: 'rat' AND 'lung'
+        </div>
+      </el-popover>
       </el-row>
     </div>
     `

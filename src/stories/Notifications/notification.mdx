@@ -1,0 +1,184 @@
+import { Meta, Story } from '@storybook/addon-docs/blocks';
+import * as stories from './notifications.stories.js';
+
+<Meta title="Components/Notification" />
+
+# Notifications
+
+Use notifications to inform users of updates or changes to system status. Communicating with users and providing immediate feedback are important for building trust.
+While notifications are an effective method of communicating with users, they are disruptive and should be used sparingly.
+
+We make use of Element UI notifications and messages and customize their components through the use of the iconClass and customClass properties.
+
+### Information Notification
+
+<Story of={stories.InfoNotification}>{stories.InformationNotification()}</Story>
+
+#### Code
+
+```js
+data() {
+  return {
+    notification : {
+      title: 'Notification Title',
+      message: 'This is a notification.',
+      showClose: true,
+      iconClass: 'hide-icon',
+      duration: 5000
+    }
+  }
+},
+methods() {
+  clickHandler() {
+    this.$notify(this.notification)
+  }
+}
+```
+
+```html
+<el-button
+  plain
+  @click="clickHandler">
+  Show Notification
+</el-button>
+```
+
+### Information Notification with Icon
+
+The icon is used to inform the users of the type of notification, such as a new release.
+
+<Story of={stories.IconInformationNotification} >{stories.IconInformationNotification()}</Story>
+
+#### Code
+
+```js
+data() {
+  return {
+    notification : {
+      title: 'Icon Notification Title',
+      message: 'This is a notification with an icon.',
+      showClose: true,
+      iconClass: 'about-icon',
+      duration: 5000
+    }
+  }
+},
+methods() {
+  clickHandler() {
+    this.$notify(this.notification)
+  }
+}
+```
+
+```html
+<el-button
+  plain
+  @click="clickHandler">
+  Show Notification
+</el-button>
+```
+
+### Success Notification
+
+Success messages are used to indicate a completion of a task, such as when a citation has been copied to the clipboard.
+
+<Story of={stories.SuccessNotification} >{stories.SuccessNotification()}</Story>
+
+#### Code
+
+```js
+data() {
+  return {
+    notification : {
+      message: 'Success!',
+      showClose: true,
+      iconClass: 'el-icon-circle-check',
+      customClass: 'el-message--success',
+      duration: 5000
+    }
+  }
+},
+methods() {
+  clickHandler() {
+    this.$message(this.notification)
+  }
+}
+```
+
+```html
+<el-button
+  plain
+  @click="clickHandler">
+  Show Notification
+</el-button>
+```
+
+### Failure Notification
+
+Error messages are a response to a technical error or failure.
+
+<Story of={stories.FailureNotification} >{stories.FailureNotification()}</Story>
+
+#### Code
+
+```js
+data() {
+  return {
+    notification : {
+      message: 'Failure.',
+      showClose: true,
+      iconClass: 'el-icon-circle-close',
+      customClass: 'el-message--error',
+      duration: 5000
+    }
+  }
+},
+methods() {
+  clickHandler() {
+    this.$message(this.notification)
+  }
+}
+```
+
+```html
+<el-button
+  plain
+  @click="clickHandler">
+  Show Notification
+</el-button>
+```
+
+### Announcement Notification
+
+Announcement messages are used for announcements.
+
+<Story of={stories.InfoNotification} >{stories.InfoNotification()}</Story>
+
+#### Code
+
+```js
+data() {
+  return {
+    notification : {
+      message: 'Portal Announcement Notification.',
+      showClose: true,
+      iconClass: 'el-icon-info',
+      customClass: 'el-message--info',
+      duration: 5000
+    }
+  }
+},
+methods() {
+  clickHandler() {
+    this.$message(this.notification)
+  }
+}
+```
+
+```html
+<el-button
+  plain
+  @click="clickHandler">
+  Show Notification
+</el-button>
+```

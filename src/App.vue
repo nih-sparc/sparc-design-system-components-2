@@ -274,6 +274,12 @@
           :category="multiLevelDropdownMultiselectCategory" 
         />
       </el-row>
+      <el-row>
+        <dropdown-multiselect
+          :category="multiLevelDropdownMultiselectCategory" 
+          :visibleData="visibleData"
+        />
+      </el-row>
     </el-col>
     <el-col>
         <el-row>
@@ -993,6 +999,17 @@
       id: '5',
     }]
   }
+  const visibleData={
+    0: {
+      One: 1,
+      Two: 2,
+      Three: 3,
+      Four: 4,
+      Five: 5,
+      Six: 6,
+      Seven: 7,
+    }
+  }
   const fifteenOptionsDropdownMultiselectCategory = {
     label: 'Fifteen Options',
     id: '0',
@@ -1204,6 +1221,7 @@
         twoOptionsDropdownMultiselectCategory,
         nineOptionsDropdownMultiselectCategory,
         multiLevelDropdownMultiselectCategory,
+        visibleData,
         fifteenOptionsDropdownMultiselectCategory,
         dialogVisible,
         dialogVisibleLarge,

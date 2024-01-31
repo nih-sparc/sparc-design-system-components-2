@@ -1,0 +1,63 @@
+import { Meta, Story} from '@storybook/addon-docs/blocks';
+import * as stories from './popupModal.stories.js';
+
+import ElPopover from 'element-plus'
+
+<Meta title="Components/PopupModal" component={ElPopover} />
+
+# Popup Modal
+
+Used to display key information about a specific item.
+
+We directly utilize the Element UI el-popover component which contains a slot to hold the content that the popover should be displayed for.
+
+### Popup Modal
+
+<Story of={stories.Primary}>{stories.Primary()}</Story>
+
+#### Code
+
+
+```html
+<div>
+      <el-popover
+        title="How do filters work?"
+        width="190"
+        trigger="hover"
+        :append-to-body=false
+        class="popover"
+        >
+        <template v-slot:reference>
+          <el-button>Hover to show popover</el-button>
+        </template>
+        <div>
+          <strong>Within categories:</strong> OR 
+          <br/>
+          example: 'heart' OR 'colon'
+          <br/>
+          <br/>
+          <strong>Between categories:</strong> AND
+          <br/>
+          example: 'rat' AND 'lung'
+        </div>
+      </el-popover>
+</div>
+```
+
+#### Placement
+The placement of the popup can be customized with the following positions passed into the `placement` property.
+
+```js
+'top-start'
+'top'
+'top-end'
+'left-start'
+'left'
+'left-end'
+'bottom-start'
+'bottom'
+'bottom-end'
+'right-start'
+'right'
+'right-end'
+```

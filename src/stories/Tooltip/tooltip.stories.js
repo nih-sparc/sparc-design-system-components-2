@@ -2,8 +2,7 @@ import SparcTooltip from '@/components/SparcTooltip.vue'
 import './demo-styles.scss';
 
 export default {
-  title: 'Components/Tooltip',
-  includeStories: []
+  title: 'Components/Tooltip'
 }
 
 export const Primary = () => ({
@@ -40,11 +39,9 @@ export const Primary = () => ({
 
   template: `
     <div>
-      <el-row v-for="dirs in tooltipDirs" class="tooltip-container" type="flex" justify="center">
-        <sparc-tooltip v-for="dir in dirs" :key="dir" :placement="dir" :content="dir">
+    <sparc-tooltip v-for="dir in tooltipDirs" :key="dir" :placement="dir">
           <el-button slot="item">{{ dir }}</el-button>
         </sparc-tooltip>
-      </el-row>
     </div>
   `
 })
@@ -56,11 +53,9 @@ export const SingleContent = () => ({
 
   template: `
     <div>
-      <el-row type="flex" class="tooltip-container" justify="center">
-        <sparc-tooltip placement="top-center" content="Sample content text">
+    <sparc-tooltip v-for="dir in tooltipDirs" :key="dir" placement="top-center" content="Sample content text">
           <el-button slot="item">Hover over me!</el-button>
         </sparc-tooltip>
-      </el-row>
     </div>
   `
 })
@@ -73,9 +68,15 @@ export const MoreContent = () => ({
   template: `
     <div>
       <el-row type="flex" class="tooltip-container" justify="center">
-        <sparc-tooltip placement="top-center">
-          <div slot="data">This is multi-line<br/>content sample text</div>
-          <el-button slot="item">Hover over me!</el-button>
+      <sparc-tooltip v-for="dir in tooltipDirs" :key="dir" :placement="dir">
+        <template v-slot:data>
+        <div>
+          {{ dir }}<br/>THIS IS <a href="#">ALOT</a> OF TEXT
+        </div>
+      </template>
+        <template v-slot:item>
+          <el-button>{{ dir }}</el-button>
+        </template>
         </sparc-tooltip>
       </el-row>
     </div>

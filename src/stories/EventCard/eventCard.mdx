@@ -1,0 +1,99 @@
+import { Meta, Story} from '@storybook/blocks';
+import * as stories from './eventCard.stories.js';
+
+<Meta title="Components/EventCard" />
+
+# Event Card
+Event Cards are used to indicate past or upcoming events. There are different categories of Events such as Conference, Workshops, Webinars, or Other Dates.
+Due to our international audience, all dates are written with the full month, followed by day(s), and year.
+
+## Properties
+The Event Card component accepts the following properties:
+
+`title`: The title associated with the event. String. Required.
+
+`eventImage`: The image associated with the event. String. Required.
+
+`eventType`: The type associated with the event. String. Required.
+
+`startDate`: The title associated with the event. String. Required.
+
+`endDate`: The end date associated with the event. String. Optional.
+
+`location`: The location associated with the event. String. Optional.
+
+`url`: The url associated with the event. String. Optional.
+
+### Event Card
+
+<Story of={stories.EventCardDemo}>{stories.EventCardDemo()}</Story>
+
+#### Code
+ *el-col tag is no longer needed in between components for vue3 + ElementPlus updates
+
+```js
+data() {
+  return {
+    type: "Conference",
+    image: "https://via.placeholder.com/736",
+    title: "SPARC and Experimental Biology (EB)",
+    startDate: "2020-04-04T10:36:01.516Z",
+    endDate:"2020-04-07T10:36:01.516Z",
+    location: "San Diego, California",
+    url: "/#"
+  }
+}
+```
+
+```html
+<el-row class="event-card-row">
+    <event-card
+      :eventType="type"
+      :eventImage="image"
+      :title="title"
+      :startDate="startDate"
+      :endDate="endDate"
+      :location="location"
+      :url="url"
+    />
+    <event-card
+      :eventImage="image"
+      :title="title"
+      :startDate="startDate"
+      :endDate="endDate"
+      :location="location"
+      :url="url"
+    />
+    <event-card
+      :eventType="type"
+      :eventImage="image"
+      :title="title"
+      :startDate="startDate"
+      :location="location"
+      :url="url"
+    />
+    <event-card
+      :eventType="type"
+      :eventImage="image"
+      :title="title"
+      :startDate="startDate"
+      :endDate="endDate"
+      :location="location"
+      :url="url"
+    />
+</el-row>
+```
+
+```css
+.event-card-row {
+  .upcoming-event{
+    width: 100%;
+    @media (min-width: 48em) {
+      width: 50%;
+    }
+    @media (min-width: 75em) {
+      width: 25%;
+    }
+  }
+}
+```

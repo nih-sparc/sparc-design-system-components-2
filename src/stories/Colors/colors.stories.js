@@ -23,7 +23,7 @@ const createDemo = (colors) => {
     template: `
       <div>
         <div class="bx--grid">
-          <div class="bx--row mb-32">
+          <div class="bx--row mb-32" style="display:flex">
             <color-demo
               v-for="color in colors"
               :key="color.hex"

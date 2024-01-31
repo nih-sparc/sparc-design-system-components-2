@@ -1,10 +1,12 @@
 <template>
-
+<about></about>
 </template>
 
 <script>
-export default {
-  name: 'IconsDemo',
+import About from '../../components/icons/About.vue';
 
+export default {
+    name: 'IconsDemo',
+    components: { About }
 }
 </script>

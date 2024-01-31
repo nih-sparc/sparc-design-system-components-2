@@ -1,4 +1,4 @@
-import ListCard from '@/components/ListCard.vue'
+import ListCard from '@/components/ListCard/ListCard.vue'
 import './demo-styles.scss';
 
 export default {
@@ -17,7 +17,7 @@ const createDemo = (listCardItem) => {
       }
     },
     template: `
-      <el-row class="list-card-container">
+      <el-row class="list-card-container" style="margin: 2rem 2rem">
         <list-card
           :data="data"
           :section-text="text"
@@ -25,6 +25,7 @@ const createDemo = (listCardItem) => {
         />
       </el-row>
     `
+
   }
 }
 

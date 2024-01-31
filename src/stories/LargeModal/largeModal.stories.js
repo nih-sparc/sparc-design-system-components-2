@@ -19,7 +19,7 @@ export const Primary = () => {
           :visible="dialogVisible"
           @close-download-dialog="dialogVisible = false"
         >
-          <div class="content" slot="optionalContent">
+        <template #optionalContent>
             <h1 class="mt-0">Direct download</h1>
             <div>
               <p>You can download the raw files and metadata directly to your computer as a zip archive free of charge.</p>
@@ -28,8 +28,8 @@ export const Primary = () => {
               </p>
               <el-button class="download-button">Download</el-button>
             </div>
-          </div>
-          <div class="content" slot="mainContent">
+          </template>
+          <template #mainContent>
             <h1 class="mt-0">Download from AWS</h1>
             <p>
               Raw files and metadata are stored in an AWS S3 Requester Pays bucket.
@@ -46,7 +46,7 @@ export const Primary = () => {
               </el-button>
               </div>
             </div>
-          </div>
+          </template>
         </large-modal>
         <el-button
           plain

@@ -1,0 +1,202 @@
+import { Meta, Story } from '@storybook/addon-docs/blocks';
+import * as stories from './icons.stories.js';
+
+import iconsKeyshape_1 from './icons-keyshape-1.png';
+import iconsKeyshape_2 from './icons-keyshape-2.png';
+import iconsKeyshape_3 from './icons-keyshape-3.png';
+
+import { Icons } from '../Button/button.stories.js'
+
+<Meta title="Components/Icons" />
+
+# Icons
+
+An icon’s first job is to guide users to where they need to go. They need to be both recognizable and intuitive.
+
+They visually express objects, actions and ideas, and also save screen real estate and enhance aesthetic appeal.
+
+Plus, most apps and websites use icon patterns which are familiar to users.
+
+Icons also visually break up the content, making it less intimidating. A well-formatted page, with text broken into easily accessible paragraphs and accented by icons, is easy to read and visually interesting enough to sustain the user’s attention.
+
+## Background
+<Story of={stories.Background} height='60px'>{stories.Background()}</Story>
+
+### Code
+```html
+<icon-name
+  width="36"
+  height="36"
+/>
+
+<icon-name
+  class="background"
+  width="36"
+  height="36"
+/>
+```
+
+## No background
+<Story of={stories.NoBackground} height='60px'>{stories.NoBackground()}</Story>
+
+### Code
+```html
+<icon-name
+  width="36"
+  height="36"
+/>
+
+<icon-name
+  width="36"
+  height="36"
+/>
+```
+
+## Social
+<Story of={stories.Social} height='60px'>{stories.Social()}</Story>
+
+
+### Code
+```html
+<twitter
+  width="36"
+  height="36"
+  color="#8300BF"
+/>
+
+<facebook
+  width="36"
+  height="36"
+  color="#8300BF"
+/>
+
+<linkedin
+  width="36"
+  height="36"
+  color="#8300BF"
+/>
+```
+
+## Icon buttons
+
+
+
+```html
+<el-button circle>
+  <icon-name
+    color="transparent #fff"
+    width="36px"
+    height="36px"
+  />
+</el-button>
+```
+
+## Keyshapes
+
+To maintain consistent sizes for basic shapes and proportions across the icon set keyshapes are used for icons. This allows for a visual familarity and ease to view multiple icons together.
+
+<img src={iconsKeyshape_1} alt="screenshot of four icons and their keyshapes" />
+
+Icons should match the keyshape that best represents the icon’s metaphor
+
+<img width="600" src={iconsKeyshape_2} alt="screenshot of two icons and their keyshapes" />
+
+Icons should not be forced to be fully within the keyshape.
+
+<img width="600" src={iconsKeyshape_2} alt="screenshot of two icons and their keyshapes, which have not been forced" />
+
+## Accessibility
+
+Where possible icons should be paired with appropriate text to provide clarity.
+All icons should have aria-labels that explain what the icon does, and not what the icon looks like. i.e “Send mail” rather than “Envelope”
+
+
+## Usage
+
+This version NO LONGER uses library `[vue-svgicon@3.2.9](https://github.com/MMF-FE/svgicon/tree/3.x)`.
+Instead each icon is its own Vue component
+
+## Props
+
+### icon / name
+
+icon name.
+use the icon name 
+
+```html
+import Close from '../../components/icons/close.vue';
+<close></close>
+```
+
+### dir
+
+The direction of icon.
+
+```html
+
+```
+
+### background
+
+Whether to fill the background
+this example is white
+
+```html
+<close :background="#FFFFF"><close>
+```
+
+You can  set the background or foreground. default is no background wiht black text.
+:color is the text color
+
+```html
+<close :background="blue" :color="white" ><close>
+```
+
+### width / height
+
+Specify the size of icon. Default value is **16px / 16px**. Default unit is **px**
+
+```html
+<close :width="50" :height="50"></close>
+<close :width="10em" :height="10em"></close>
+```
+
+### scale
+
+Scale icon size, it will overwrite width/height prop
+
+```html
+need programability for this function
+```
+
+### color
+
+Specify the color of icon. Default value is **inherit**.
+
+```html
+
+<close :color="orange" ><close>
+
+```
+
+If the icon is mutil path/shape, you can use mutil color. It is defined in the order of path/shape.
+
+```html
+<icon-name name="vue" width="100" height="100" color="#42b983 #35495e"></icon-name>
+```
+
+Also, you can use CSS to add colors.
+
+```html
+<close class="vue-icon" width="100" height="100"></close>
+```
+
+```css
+.vue-icon path[pid='0'] {
+    fill: #42b983;
+}
+
+.vue-icon path[pid='1'] {
+    fill: #35495e;
+}
+```

@@ -49,12 +49,12 @@ export const Primary = () => ({
           sortable
           width="160"
         >
-          <template slot-scope="scope">
+          <template v-slot="scope">
             <a href="#">{{ scope.row.name }}</a>
           </template>
         </el-table-column>
         <el-table-column prop="banner" label="Image" width="160">
-          <template slot-scope="scope">
+          <template v-slot="scope">
             <img
               :src="scope.row.banner"
               alt="Banner image"

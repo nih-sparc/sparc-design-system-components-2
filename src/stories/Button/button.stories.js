@@ -1,13 +1,31 @@
-//import { withKnobs, text, boolean } from '@storybook/addon-knobs'; //depricated
 import {} from '@storybook/addon-controls'
+
+import V2horpanel from '../../components/icons/2horpanel.vue';
+import V2vertpanel from '../../components/icons/2vertpanel.vue'
+import V3panel from '../../components/icons/3panel.vue'
+import V4panel from '../../components/icons/4panel.vue'
+import ChangeBckgd from '../../components/icons/changeBckgd.vue';
+import Close from '../../components/icons/close.vue';
+import CloseFullScreen from '../../components/icons/closeFullScreen.vue';
+import Dock from '../../components/icons/dock.vue';
+import FullScreen from '../../components/icons/fullScreen.vue';
+import Pause from '../../components/icons/pause.vue';
+import Permalink from '../../components/icons/permalink.vue';
+import Play from '../../components/icons/play.vue';
+import ResetZoom from '../../components/icons/resetZoom.vue';
+import Singlepanel from '../../components/icons/singlepanel.vue';
+import Tooltips from '../../components/icons/tooltips.vue';
+import Undock from '../../components/icons/undock.vue';
+import ZoomIn from '../../components/icons/zoomIn.vue';
+import ZoomOut from '../../components/icons/zoomout.vue';
 import ElementButton from 'element-plus';
 
 const defaultProps = () => ({
   isDisabled: {
-    default: boolean('Disabled', true)
+    default: {'Disabled':true}
   },
   text: {
-    default: text('Text', 'Submit')
+    default: 'Submit'
   }
 })
 
@@ -23,15 +41,6 @@ export const Primary = () => ({
     <div>
       <el-button>{{ text }}</el-button>
       <el-button :disabled="isDisabled">Disabled Button</el-button>
-    </div>
-  `
-})
-
-export const ButtonSizes = (className, text) => ({
-  props: defaultProps(),
-  template: `
-    <div>
-      <el-button class="${className}">${text}</el-button>
     </div>
   `
 })
@@ -64,11 +73,43 @@ export const Danger = () => ({
   `
 })
 
+export const LargeButton = () => ({
+  props: defaultProps(),
+  template: `
+    <div>
+      <el-button class="large">Large Button</el-button>
+    </div>
+  `
+})
+export const MediumButton = () => ({
+  props: defaultProps(),
+  template: `
+    <div>
+      <el-button>Medium Button</el-button>
+    </div>
+  `
+})
+export const SmallButton = () => ({
+  props: defaultProps(),
+  template: `
+    <div>
+      <el-button class="small">SmallButton</el-button>
+    </div>
+  `
+})
+export const ExtraSmallButton = () => ({
+  props: defaultProps(),
+  template: `
+    <div>
+      <el-button class="extra-small">Extra Small Button</el-button>
+    </div>
+  `
+})
 const icons = [
-  '2horpanel',
-  '2vertpanel',
-  '3panel',
-  '4panel',
+  'V2horpanel',
+  'V2vertpanel',
+  'V3panel',
+  'V4panel',
   'changeBckgd',
   'close',
   'closeFullScreen',
@@ -92,6 +133,8 @@ export const Icons = () => ({
     }
   },
   props: defaultProps(),
+  components:{V2horpanel,V2vertpanel,V3panel,V4panel, ChangeBckgd, Close, CloseFullScreen, Dock, 
+    FullScreen, Pause, Permalink, Play, ResetZoom, Singlepanel, Tooltips, Undock, ZoomIn, ZoomOut},
   template: `
     <div>
       <el-button
@@ -99,11 +142,8 @@ export const Icons = () => ({
         :key="icon"
         circle
       >
-        <svgicon
-          width="36px"
-          height="36px"
-          :name="icon"
-          color="transparent #fff"
+        <component :is="icon"
+        color="#FFF"
         />
       </el-button>
     </div>

@@ -3,8 +3,7 @@ import GridDemo from './GridDemo.vue'
 
 export default {
   title: 'Layout/Grid',
-  component:GridDemo,
-  tags:['autodocs']
+  component:GridDemo
 }
 
 export const Basic = () => ({

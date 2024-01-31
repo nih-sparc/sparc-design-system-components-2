@@ -1,11 +1,11 @@
 .event-card-row {
-    .el-col {
-      width: 100%;
-      @media (min-width: 48em) {
-        width: 50%;
-      }
-      @media (min-width: 64em) {
-        width: 25%;
-      }
+  .upcoming-event{
+    width: 100%;
+    @media (min-width: 48em) {
+      width: 40%;
+    }
+    @media (min-width: 75em) {
+      width: 25%;
     }
   }
+}

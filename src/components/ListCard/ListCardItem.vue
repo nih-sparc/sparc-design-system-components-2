@@ -105,7 +105,7 @@
     cursor: default;
   }
   .list-card-image {
-    width: stretch;
+    width: -webkit-fill-available;
     aspect-ratio: 1 / 1;
   }
   .list-card-content {

@@ -3,8 +3,7 @@ import './demo-styles.scss';
 
 export default {
   title: 'Components/EventCard',
-  component: EventCard,
-  tags:['autodocs']
+  component: EventCard
 }
 
 const createDemo = (event) => {
@@ -23,7 +22,7 @@ const createDemo = (event) => {
     },
     template: `
       <el-row class="event-card-row">
-        <el-col>
+
           <event-card
             :eventType="type"
             :eventImage="image"
@@ -33,8 +32,8 @@ const createDemo = (event) => {
             :location="location"
             :url="url"
           />
-        </el-col>
-        <el-col>
+
+  
           <event-card
             :eventImage="image"
             :title="title"
@@ -43,8 +42,7 @@ const createDemo = (event) => {
             :location="location"
             :url="url"
           />
-        </el-col>
-        <el-col>
+
           <event-card
             :eventType="type"
             :eventImage="image"
@@ -53,8 +51,7 @@ const createDemo = (event) => {
             :location="location"
             :url="url"
           />
-        </el-col>
-        <el-col>
+
           <event-card
             :eventType="type"
             :eventImage="image"
@@ -64,7 +61,7 @@ const createDemo = (event) => {
             :location="location"
             :url="url"
           />
-        </el-col>
+
       </el-row>
     `
   }
