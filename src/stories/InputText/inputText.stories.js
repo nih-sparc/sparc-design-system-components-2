@@ -10,7 +10,7 @@ const defaultProps = () => ({
 })
 
 export default {
-  title: 'Components/Text Input',
+  title: 'Components/TextInput',
 
   //decorators: [withKnobs],
 
