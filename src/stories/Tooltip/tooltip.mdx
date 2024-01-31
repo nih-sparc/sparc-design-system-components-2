@@ -26,9 +26,16 @@ The content to be displayed in the tooltip can be customized through the `conten
 #### Code
 
 ```html
-<sparc-tooltip placement="top-center" content="Sample content text">
-  <el-button slot="item">Hover over me!</el-button>
-</sparc-tooltip>
+      <sparc-tooltip key="top-center" placement="top-center" content="Sample content text">
+          <template v-slot:data>
+          <div>
+            <br/>THIS IS <a href="#">ALOT</a> OF TEXT
+          </div>
+        </template>
+        <template v-slot:item>
+          <el-button>Hover Over Me</el-button>
+        </template>
+      </sparc-tooltip>
 ```
 
 ### More Content

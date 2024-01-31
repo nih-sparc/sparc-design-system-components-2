@@ -64,7 +64,7 @@ export const Primary = () => ({
         </div>
         <el-input v-model="errorValue">
           <close
-            v-slot="suffix"
+            slot="suffix"
             class="background"
             height="16"
             width="16"

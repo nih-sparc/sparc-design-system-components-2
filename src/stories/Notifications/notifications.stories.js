@@ -1,7 +1,8 @@
 import Tooltips from '../../components/icons/tooltips.vue';
+import {  iconInformationNotification } from "../../../utils/notificationMessages"
 
 export default {
-    title: 'Components/Notification',
+    title: 'Components/Notification'
   }
   
   export const InformationNotification = () => ({
@@ -29,7 +30,7 @@ export default {
       </el-button>
     `
   })
-  
+
   export const IconInformationNotification = () => ({
     data() {
       return {
@@ -44,12 +45,12 @@ export default {
     },
     methods: {
       clickHandler() {
-        this.$notify(this.notification)
+        iconInformationNotification(this.notification.title,this.notification.message)
       }
     },
     template: `
       <el-button
-        plain
+        
         @click="clickHandler">
         Show Notification
       </el-button>
