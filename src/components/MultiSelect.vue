@@ -369,16 +369,16 @@
     color: $lightGrey;
     position: absolute;
     z-index: 1;
-    padding-left: 1rem;
-    padding-top: .5rem;
+    padding-left: .5rem;
+    padding-top: .25rem;
     margin-bottom: 0;
     margin-right: 2rem;
     white-space: nowrap;
     pointer-events: none;
     display: inline-block;
     svg {
-      margin-top: -.25rem;
-      margin-right: .25rem;
+      vertical-align: middle;
+      margin-bottom: .25rem;
     }
     .placeholder-text {
       display: inline-block;
