@@ -1,7 +1,7 @@
 <template>
     <div>
       <div v-if="isFilterApplied" class="multilevel-select-filter">
-        <filter-applied height="20" width="20"></filter-applied>
+        <filter-applied :height=20 :width=20></filter-applied>
         <div class="placeholder-text">Filter applied</div>
       </div>
       <div v-else class="multilevel-select-filter">
@@ -17,7 +17,7 @@
         ref="cascader"
       >
         <template v-slot="{ node, data }">
-          <span :class="`${node.isLeaf ? 'leaf-node-label' : ''}`" @click="labelClicked(node)">{{ data.label }}</span>
+          <span :class="`${node.isLeaf ? 'leaf-node-label' : ''}`">{{ data.label }}</span>
           <span v-if="!node.isLeaf && numFiltersApplied(data) != 0"> ({{ numFiltersApplied(data) }}) </span>
         </template>
       </el-cascader>
